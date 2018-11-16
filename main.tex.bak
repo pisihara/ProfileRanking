@@ -22,9 +22,9 @@
 \usepackage{breakcites}
 \usepackage{matlab-prettifier}
 \usepackage[]{mcode}
-\usepackage{listings}
+\usepackage{listings} 
 \usepackage{color}
-\usepackage{hyperref}
+\usepackage{hyperref} 
 \usepackage{authblk}
 
 \title {Profile Ranking Adaptive Choice-Based Conjoint Analysis: A Complementary Approach to Utility-Based Analysis}
@@ -71,9 +71,9 @@
 \externaldocument{SimpleEquityModel}
 
  \vspace{.7in}
-
+ 
  While utility based modelling is not the defining feature of choice modelling as considered relevant for the journal, your paper basically only presents a method for aggregating and sampling ranked profiles. There is no profile decomposition in attribute or alternative based effects and there is limited exploration and demonstration of the actual implications or contribution to choice modelling. Also the paper is rather limited in how it is positioned in the literature and does not give the reader an understanding how the proposed approach contributes to enhancing ACBC or related methods nor does it explain well how it relates to the wider literature on rankings, including any prior work published in the journal. If you can extend your paper to better cover these aspects we will be pleased to consider a new submission
-
+ 
  \begin{abstract}
 To analyze samples from small populations, profile ranking based Adaptive Choice-Based Conjoint (PR-ACBC) analysis is proposed as a complement to utility based  ACBC. Profile rankings offers a safety net for high variances in partworth utilities characteristic of small samples. PR-ACBC draws  upon the maximum likelihood estimate for multivariate hypergeometric distribution to make population inferences.  Various distance measures in ranking theory are used  to analyze profile decomposition, and   multidimensional scaling (MDS)  for comparisons between  survey sub-groups.  The theory of PR-ACBC is introduced using a toy survey, and its application  illustrated by a real survey administered recently to  faith-based and non-faith based disaster relief organizations belonging to the National Voluntary Organizations Active In Disaster (VOAD).
 
@@ -88,7 +88,7 @@ To analyze samples from small populations, profile ranking based Adaptive Choice
 %  \bottomrule
 %  \end{tabular}
 %  \end{table}
-
+ 
 %% THIS IS FOR A LONG SCRIPT WHICH MUST BE SPLIT INTO
 %% SHORTER BLOCK OF CODE YOU CAN SPECIFY THE
 %% RANGE OF LINE NUMBERS DISPLAYED AND NUMBER
@@ -101,16 +101,16 @@ To analyze samples from small populations, profile ranking based Adaptive Choice
 % \parbox[b]{5.8in}{\lstinputlisting[style=Matlab-editor,firstline=20, lastline=32, firstnumber=20]{MATLABScript.m}}\\\hline
 % \end{tabular}
 % \end{table}
-
+ 
  \vspace{1in}
-
+ 
 \section{Introduction}
 
-Adaptive Choice-Based Conjoint (ACBC) analysis surveys, a widely applicable type of conjoint analysis, provide respondents with an engaging interview experience, and can be designed with a  single-elimination, "head-to-head" (2 concept choice) tournament beginning with profiles which are representative of concepts close to the respondent's \#1 profile called  ``Build Your Own'' (BYO) (Orme and Chrzan 2017). Rather than focusing on part-worth utilities for each individual attribute level  obtained by a sophisticated statistical method such as hierarchical-Bayesian Markov-Chain Monte-Carlo (HB MCMC) simulation (Rossi et. al. 2005), this research note introduces profile ranking (PR) ACBC analysis which obtains the top ranked profiles by a conceptually simpler discrete probability model. In survey marketing of product options, the importance of such a ranking is immediate. A lineup of top ranked product concepts might therefore be included as visual output of commercial ACBC software.
+Adaptive Choice-Based Conjoint (ACBC) analysis surveys, a widely applicable type of conjoint analysis, provide respondents with an engaging interview experience, and can be designed with a  single-elimination, "head-to-head" (2 concept choice) tournament beginning with profiles which are representative of concepts close to the respondent's \#1 profile called  ``Build Your Own'' (BYO) (Orme and Chrzan 2017). Rather than focusing on part-worth utilities for each individual attribute level  obtained by a sophisticated statistical method such as hierarchical-Bayesian Markov-Chain Monte-Carlo (HB MCMC) simulation (Rossi et. al. 2005), this research note introduces profile ranking (PR) ACBC analysis which obtains the top ranked profiles by a conceptually simpler discrete probability model. In survey marketing of product options, the importance of such a ranking is immediate. A lineup of top ranked product concepts might therefore be included as visual output of commercial ACBC software.  
 
-Though profile ranking could ultimately be approximated by part-worth utilities, we explore in this paper an essentially ``utility-free'' method to obtain small population profile rankings. Unlike utility-estimation, which does not in general give exact profile rankings for observed sample respondents, each individual respondent's exact profile ranking is obtained directly from the tournament data. The tournament winner is ranked 1, runner-up 2, two semi-final losers both ranked 3, and so on.  The respondent's profile rankings are in fact equivalent to specifying all the results, given the respondent's initial bracket of head-to-head tournament matches.  For a sample group of $n$ respondents, each profile ranking is obtained by taking a simple  average of the individual rankings.
+Though profile ranking could ultimately be approximated by part-worth utilities, we explore in this paper an essentially ``utility-free'' method to obtain small population profile rankings. Unlike utility-estimation, which does not in general give exact profile rankings for observed sample respondents, each individual respondent's exact profile ranking is obtained directly from the tournament data. The tournament winner is ranked 1, runner-up 2, two semi-final losers both ranked 3, and so on.  The respondent's profile rankings are in fact equivalent to specifying all the results, given the respondent's initial bracket of head-to-head tournament matches.  For a sample group of $n$ respondents, each profile ranking is obtained by taking a simple  average of the individual rankings. 
 
-To explain the basic ideas of PR ACBC, in Section 2, we introduce a simple generic survey with 2 attributes consisting of 2 levels each. Given a sample of $n=4$ respondents from a total population of size $N=8$, the maximum-likelihood expected population profile rankings are the same as the sample rankings. In general, the population most likely to produce any given sample by random selection is one with the same profile rankings as the sample. In Section 3, we describe a method, not reliant upon normal data distribution, of obtaining 100\% confidence intervals for population profile rankings given the sample profile rankings. Section 4 explains why the sample profile rankings predicted by multiple regression of part-worth utilities do not in general equal the actual sample profile rankings. Finally, Section 5 applies this methodology to a recent survey of humanitarian disaster relief organizations. The context motivating this methodological study is a sequel to a novel application of ACBC in disaster-response research (Gralla et. al. 2014).
+To explain the basic ideas of PR ACBC, in Section 2, we introduce a simple generic survey with 2 attributes consisting of 2 levels each. Given a sample of $n=4$ respondents from a total population of size $N=8$, the maximum-likelihood expected population profile rankings are the same as the sample rankings. In general, the population most likely to produce any given sample by random selection is one with the same profile rankings as the sample. In Section 3, we describe a method, not reliant upon normal data distribution, of obtaining 100\% confidence intervals for population profile rankings given the sample profile rankings. Section 4 explains why the sample profile rankings predicted by multiple regression of part-worth utilities do not in general equal the actual sample profile rankings. Finally, Section 5 applies this methodology to a recent survey of humanitarian disaster relief organizations. The context motivating this methodological study is a sequel to a novel application of ACBC in disaster-response research (Gralla et. al. 2014). 
 
 \section{Maximum Likelihood Estimation of Profile Rankings}
 
@@ -224,8 +224,8 @@ D& 0 &0&8&3 \\
 \label{Tab5}
 \end{table}
 
-
-Let us assume that each member of the population with $N=8$ is equally likely to occur in our sample with $n=4$. Assume further that $p_i$ is the probability that a respondent's outcome is $O_i$. The probability $p$ that the observed sample consisting of one $O_1$, two $O_2$'s and one $O_5$ is
+ 
+Let us assume that each member of the population with $N=8$ is equally likely to occur in our sample with $n=4$. Assume further that $p_i$ is the probability that a respondent's outcome is $O_i$. The probability $p$ that the observed sample consisting of one $O_1$, two $O_2$'s and one $O_5$ is 
 
 \begin{equation}
 p=f(p_1,p_2,p_5)=\frac{4!}{1!2!1!}[p_1p_2^2p_5],
@@ -234,7 +234,7 @@ p=f(p_1,p_2,p_5)=\frac{4!}{1!2!1!}[p_1p_2^2p_5],
 {\flushleft where} $g(p_1,p_2,p_5)=p_1+p_2+p_5=1$.
 The values of $p_1^*,p_2^*,$ and $p_5^*$ which maximize $H(p_1,p_2,p_5)=\ln (f(p_1,p_2,p_5))$ (and hence also maximizes $p=f(p_1,p_2,p_5)$)  are obtained using Lagrange multipliers:
 \begin{eqnarray*}
-\nabla H(p_1^*,p_2^*,p_5^*) & = & \lambda \nabla g
+\nabla H(p_1^*,p_2^*,p_5^*) & = & \lambda \nabla g 
 (p_1^*,p_2^*,p_5^*),
 \end{eqnarray*}
 {\flushleft and therefore}
@@ -243,7 +243,7 @@ The values of $p_1^*,p_2^*,$ and $p_5^*$ which maximize $H(p_1,p_2,p_5)=\ln (f(p
 \frac{2}{p_2^*} & = & \lambda\\
 \frac{1}{p_5^*} & = & \lambda.
 \end{eqnarray*}
-{\flushleft (The scalar quantity $\lambda$ is called a Lagrange multiplier.) Using} $p_1^*+p_2^*+p_5^*=1$ gives $\frac{1}{\lambda} + \frac{2}{\lambda}+\frac{1}{\lambda}=1$ and so $ \lambda = 4$.  Hence, the values $p_1^*=\frac{1}{4}, p_2^*=\frac{1}{2}$, $p_5^*=\frac{1}{4}$ maximize the probability of the observed sample outcomes.  Thus, the PRT in Table 5 can be interpreted as the expected rankings for a population of size 8 which maximizes the likelihood of the observed sample outcomes.  The likelihood of the observed sample would be lower for any other expected population rankings such as a PRT corresponding to a population whose response outcomes  consist of two $O_1$'s, two $O_5$'s, three $O_2$'s and the outcome $O_7$ (which reverses the winner and runner-up in outcome $O_2$).  The revised PRT is shown in Table \ref{Tab6}.
+{\flushleft (The scalar quantity $\lambda$ is called a Lagrange multiplier.) Using} $p_1^*+p_2^*+p_5^*=1$ gives $\frac{1}{\lambda} + \frac{2}{\lambda}+\frac{1}{\lambda}=1$ and so $ \lambda = 4$.  Hence, the values $p_1^*=\frac{1}{4}, p_2^*=\frac{1}{2}$, $p_5^*=\frac{1}{4}$ maximize the probability of the observed sample outcomes.  Thus, the PRT in Table 5 can be interpreted as the expected rankings for a population of size 8 which maximizes the likelihood of the observed sample outcomes.  The likelihood of the observed sample would be lower for any other expected population rankings such as a PRT corresponding to a population whose response outcomes  consist of two $O_1$'s, two $O_5$'s, three $O_2$'s and the outcome $O_7$ (which reverses the winner and runner-up in outcome $O_2$).  The revised PRT is shown in Table \ref{Tab6}. 
 \begin{table}[!htpb]
 \centering
 \scriptsize
@@ -267,7 +267,7 @@ D& 0 &0&8&3 \\
 In general, let $n_k$ be the number of sample outcomes $O_k$ ($k=1,2,...,K$) and let $p_k$ be the probability that a respondent in the population  has outcome $O_k$ $(k= 1, 2, ..., K)$.  The likelihood function $f(p_1, p_2, ..., p_K)$ giving the probability of observing the sample values $n_1, ..., n_{K}$ is given by
 
 \begin{equation}
-f(p_1, ...., p_K)= \frac{n!}{n_1!n_2!\cdot\cdot\cdot n_K!} \prod_{k=1}^K p_k^{n_k},
+f(p_1, ...., p_K)= \frac{n!}{n_1!n_2!\cdot\cdot\cdot n_K!} \prod_{k=1}^K p_k^{n_k}, 
 \end{equation}
 \label{eq:4}
 
@@ -278,7 +278,7 @@ We seek to find the values $p_1^*, ..., p_{K}^*$ which maximize the likelihood f
 H(p_1, ..., p_K)=\ln f = \ln(n!) - \sum_{k=1}^{K} n_k! +\sum_{k=1}^{K} n_k\ln(p_k),
 \end{equation}
 \label{eq:5}
-{\flushleft subject} to the constraint $g(p_1, ..., p_{K})=p_1+p_2+...+p_K=1$.  Properties of gradients imply that the optimal values $p_i^*$ must satisfy
+{\flushleft subject} to the constraint $g(p_1, ..., p_{K})=p_1+p_2+...+p_K=1$.  Properties of gradients imply that the optimal values $p_i^*$ must satisfy 
 
 \begin{equation}
 \nabla H(p_1^*, ..., p_K^*) = \lambda \nabla g(p_1^*, ..., p_{K}^*).
@@ -290,14 +290,14 @@ H(p_1, ..., p_K)=\ln f = \ln(n!) - \sum_{k=1}^{K} n_k! +\sum_{k=1}^{K} n_k\ln(p_
 \frac{n_k}{p_k^*}=\lambda.
 \end{equation}
 \label{eq:7}
-{\flushleft Hence,} $n=\sum_{k=1}^{K} n_k =  \lambda \sum_{k=1}^{K} p_k^* = \lambda$, and so the probabilities $p_k^* = \frac{n_k}{n}$ give the maximum likelihood of the observed sample outcomes $n_k$ ($k=1, 2, ..., K$).  For any sample of size $n$ and number $n_k$ of observed outcomes $O_k$ ($k=1, 2, ...K$), the maximum likelihood probabilities $p_k^*=\frac{n_k}{n}$
-indicate that for a population of size $N$, the expected number $N_k$ of outcomes $O_k$ is given by $E(N_k)=p_k N.$  A maximum-likelihood population could be simulated by augmenting the observed $n$ sample outcomes, where the probability of outcome $O_k$ at each draw is given by $p_k$.   For a large number of such randomly constructed populations of size $N$, for each $k$ the average number of population outcomes $O_k$ is approximately $p_k N$.
+{\flushleft Hence,} $n=\sum_{k=1}^{K} n_k =  \lambda \sum_{k=1}^{K} p_k^* = \lambda$, and so the probabilities $p_k^* = \frac{n_k}{n}$ give the maximum likelihood of the observed sample outcomes $n_k$ ($k=1, 2, ..., K$).  For any sample of size $n$ and number $n_k$ of observed outcomes $O_k$ ($k=1, 2, ...K$), the maximum likelihood probabilities $p_k^*=\frac{n_k}{n}$ 
+indicate that for a population of size $N$, the expected number $N_k$ of outcomes $O_k$ is given by $E(N_k)=p_k N.$  A maximum-likelihood population could be simulated by augmenting the observed $n$ sample outcomes, where the probability of outcome $O_k$ at each draw is given by $p_k$.   For a large number of such randomly constructed populations of size $N$, for each $k$ the average number of population outcomes $O_k$ is approximately $p_k N$.  
 
 
 
 \section{Confidence Intervals}
 
-Maximum likelihood  provides some insight into the expected population profile rankings. In this section, given ranking data for a sample consisting of $n$ survey respondents selected at random from a population with $N> n$ respondents, we will show how to construct confidence  intervals   which are guaranteed to include the population profile rankings.
+Maximum likelihood  provides some insight into the expected population profile rankings. In this section, given ranking data for a sample consisting of $n$ survey respondents selected at random from a population with $N> n$ respondents, we will show how to construct confidence  intervals   which are guaranteed to include the population profile rankings.   
 
 \subsection{Population Ranking Range}
 
@@ -354,7 +354,7 @@ e_2=\frac{k-n}{k}(3-\rho_n(X)).
 
 \subsection{Application}
 
-These results can be used to quantify the possible consequences of survey response bias. For the simple example introduced in Section 2, let us consider the following response scenarios. Assume that, out of the total population $N=8$, two respondents have outright refused to take the survey, four have completed it, and the other two have not yet replied. If the analysis is performed with only the sample of $n=4$ respondents, then the length of the confidence interval is  $\frac{2(8-4)}{8}=1$. If one of the non-respondents is convinced to participate, the interval length is reduced to $\frac{2(8-5)}{8}=\frac{3}{4}$, improving the precision by 25\%. If both of the non-respondents participate, then the interval is further reduced to $\frac{2(8-6)}{8}=\frac{1}{2}$. In other words, the two non-respondents  cause the confidence interval to be twice as large, an important consideration in seeking to elicit survey response.
+These results can be used to quantify the possible consequences of survey response bias. For the simple example introduced in Section 2, let us consider the following response scenarios. Assume that, out of the total population $N=8$, two respondents have outright refused to take the survey, four have completed it, and the other two have not yet replied. If the analysis is performed with only the sample of $n=4$ respondents, then the length of the confidence interval is  $\frac{2(8-4)}{8}=1$. If one of the non-respondents is convinced to participate, the interval length is reduced to $\frac{2(8-5)}{8}=\frac{3}{4}$, improving the precision by 25\%. If both of the non-respondents participate, then the interval is further reduced to $\frac{2(8-6)}{8}=\frac{1}{2}$. In other words, the two non-respondents  cause the confidence interval to be twice as large, an important consideration in seeking to elicit survey response.          
 
 \section{Multiple Regression of Profile Rankings}
 In this section we explain why  least squares multiple  regression (LSRM) will not in general give exact sample profile rankings. In other words, part-worth utilities can only approximate sample rankings.
@@ -368,7 +368,7 @@ Least squares multiple regression (LSRM) can be used to predict sample profile r
 U_i&=& 1 \textup{ if attribute 1 has level 1, and 0 if it has level 2}\\
 V_i&=& 1 \textup{ if attribute 2 has level 1, and 0 if it has level 2}\\
 Y_i&=& \textup{ Respondent's ranking of a profile with $U=U_i$, $V=V_i$.}
-\end{eqnarray*}
+\end{eqnarray*} 
 
 \begin{table}[!htpb]
 \centering
@@ -386,7 +386,7 @@ Y_i&=& \textup{ Respondent's ranking of a profile with $U=U_i$, $V=V_i$.}
 \end{table}
 
 
-This dataset has certain properties:
+This dataset has certain properties: 
 \begin{itemize}
 \item
 Each column consists of a respondent's profile rankings, and hence contains the values $1, 2, 3, 3$ in any order.
@@ -400,7 +400,7 @@ Table \ref{Tab7} can also be represented in the form of Table \ref{Tab8}, by whi
 \centering
 \small
 \begin{tabular}{cc|c}
-$U$ & $V$ & Rank\\ \hline
+$U$ & $V$ & Rank\\ \hline 
 1&	1&	$Y_1$\\
 1&	1&	$Y_2$\\
 1&	1&	$Y_3$\\
@@ -423,7 +423,7 @@ $U$ & $V$ & Rank\\ \hline
 \end{table}
 Using least squares multiple linear regression (LSMR) on the dataset in Table \ref{Tab8}, we estimate each sample profile ranking $Y_i$ as $\hat{Y}_i$:
 $$
-\hat{Y}_i=c_0 + c_1 U_i + c_2 V_i,
+\hat{Y}_i=c_0 + c_1 U_i + c_2 V_i,  
 $$
 {\flushleft where} the regression coefficients $c_0,c_1,c_2$ are determined by minimizing the sum of squared residuals (SSR):
 $$
@@ -445,82 +445,82 @@ which is equivalent to the matrix equation:
    n& \sum U_i& \sum V_i \\
 \sum U_i&\sum U_i^2&\sum U_iV_i\\
 \sum V_i& \sum U_iV_i& \sum V_i^2\\
-
+     
 \end{bmatrix}
 %
 \begin{bmatrix}
    c_0 \\
 c_1\\
-c_2
+c_2   
 \end{bmatrix}
-=
+= 
 \begin{bmatrix}
 \sum Y_i\\
 \sum U_iY_i\\
-\sum V_iY_i
-\end{bmatrix}
+\sum V_iY_i    
+\end{bmatrix} 
 .
 \]
 
 {\flushleft Simplifying} the sums and using Cramer's Rule  we obtain the regression coefficients $c_0,c_1$ and $c_2$:
 
 $$
-c_0 =
+c_0 = 
 \frac{
 \begin{bmatrix}
 \sum Y_i & 8 & 8\\
 \sum U_iY_i& 8 & 4\\
-\sum V_iY_i & 4 & 8
+\sum V_iY_i & 4 & 8  
 \end{bmatrix}
 }{256} = \frac{
 \begin{bmatrix}
 \sum Y_i & 2 & 2\\
 \sum U_iY_i& 2 & 1\\
-\sum V_iY_i & 1 & 2
+\sum V_iY_i & 1 & 2  
 \end{bmatrix}
 }{16},
 $$
 $$
-c_1 =
+c_1 = 
 \frac{
 \begin{bmatrix}
 16 & \sum Y_i & 8 \\
 8 & \sum U_iY_i& 4\\
-8 & \sum V_iY_i & 8
+8 & \sum V_iY_i & 8  
 \end{bmatrix}
 }{256} = \frac{
 \begin{bmatrix}
 4 & \sum Y_i & 2 \\
 2 & \sum U_iY_i& 1\\
-2 & \sum V_iY_i & 2
+2 & \sum V_iY_i & 2  
 \end{bmatrix}
 }{16}, \textup{and}
 $$
 $$
-c_2 =
+c_2 = 
 \frac{
 \begin{bmatrix}
 16 &  8 & \sum Y_i\\
 8 & 8 & \sum U_iY_i \\
-8 & 4 & \sum V_iY_i
+8 & 4 & \sum V_iY_i  
 \end{bmatrix}
 }{256} = \frac{
 \begin{bmatrix}
 4 & 2 & \sum Y_i\\
 2 & 2 & \sum U_iY_i \\
-2 & 1 & \sum V_iY_i
+2 & 1 & \sum V_iY_i  
 \end{bmatrix}
 }{16}.
 $$
 
-The LSMR predicted profile rankings $ \hat{Y}_{uv}$  are given by:
-$$\hat{Y}_{11} = c_0 + c_1 + c_2 =
+The LSMR predicted profile rankings $ \hat{Y}_{uv}$  are given by: 
+$$\hat{Y}_{11} = c_0 + c_1 + c_2 = 
 \frac{2\sum U_iY_i + 2\sum V_iY_i - \sum Y_i}{16},$$
-$$\hat{Y}_{10} = c_0 + c_1 =
+$$\hat{Y}_{10} = c_0 + c_1 = 
 \frac{-6 \sum V_iY_i + \sum U_iY_i + \sum Y_i}{16},$$
-$$\hat{Y}_{01} = c_0 + c_2 =
-\frac{-2\sum U_iY_i + 2\sum V_iY_i + \sum Y_i}{16}, \textup{  and}$$
-$$\hat{Y}_{00} = c_0 =
+$$\hat{Y}_{01} = c_0 + c_2 = 
+\frac{-2\sum U_iY_i + 2\sum V_iY_i + \sum Y_i}{16}, \textup{  and}$$ 
+$$\hat{Y}_{00} = c_0 = 
 \frac{-2\sum U_iY_i - 2\sum V_iY_i +3 \sum Y_i}{16}.$$
 The corresponding actual sample profile rankings obtained by averaging the respondent rankings are:
 $$\bar{Y}_{11} = \frac{Y_1+Y_2+Y_3+Y_4}{4},$$
@@ -575,7 +575,7 @@ Table 9 gives an example where the average profile rankings and part-worth profi
 {\flushleft In} this case, the regression coefficients are
 $c_0=3$, $c_1=-.75$, $c_2=-.75$.  The actual sample profile rankings obtained by averaging the respondent rankings are equal to the predicted profile rankings obtained by LSMR, shown in Table \ref{Tab9}.
 
-{\flushleft Moreover}, the equality (\ref{cor}) in the corollary holds:
+{\flushleft Moreover}, the equality (\ref{cor}) in the corollary holds: 
 $$\sum U_iY_i=\sum V_iY_i = 15.$$
 
 The dataset in Table 10, shows 4 respondents whose profiles' predicted and actual rankings are not equal.  In this case, the regression coefficients are
@@ -614,11 +614,11 @@ The conditions  (12)-(15) for whether or not the LSMR  profile ranking predictio
 
 \section{Profile Ranking Analysis of a Small Population Survey}
 
-In this section we show how to apply PR ACBC methodology to an actual survey.
+In this section we show how to apply PR ACBC methodology to an actual survey. 
 
 \subsection{Humanitarian Disaster Relief}
 
-PR-based ACBC methodology for analyzing small populations has many possible applications. In disaster relief, effectiveness of a response may depend on the quality of collaboration between organizations with a broad diversity of religious and ideological perspectives. For effective coordination of relief, it is important that humanitarian organizations understand the unique traits and characteristics that shape their disaster response decisions. Through comparison of these factors, it is possible to design optimal partnerships and joint endeavors between organizations that may fulfill distinct, yet complimentary, humanitarian roles. Our research focused on how faith based organizations (FBOs) prioritize key attributes affecting their decision whether or not to respond to an international humanitarian disaster.
+PR-based ACBC methodology for analyzing small populations has many possible applications. In disaster relief, effectiveness of a response may depend on the quality of collaboration between organizations with a broad diversity of religious and ideological perspectives. For effective coordination of relief, it is important that humanitarian organizations understand the unique traits and characteristics that shape their disaster response decisions. Through comparison of these factors, it is possible to design optimal partnerships and joint endeavors between organizations that may fulfill distinct, yet complimentary, humanitarian roles. Our research focused on how faith based organizations (FBOs) prioritize key attributes affecting their decision whether or not to respond to an international humanitarian disaster. 
 
 To this end, we designed a survey that creates "Go/No-Go" decision profile preferences for a small population of approximately 50 international FBOs with headquarters in the United States. The attributes and levels for this survey are displayed in Figure \ref{AL}. Different disaster scenarios face off against each other in the tournament stage and are given rankings based on their performance. The purpose of the ranking is to determine whether FBOs fill a certain niche in disaster response landscape as might be inferred for by their ``number-one'' or ``top-three'' ranked disaster response profiles. As a case study, we discus how our methodology was applied to data obtained for this survey administered using Sawtooth's Lighthouse platform.
 
@@ -638,33 +638,85 @@ As shown in Figure 4, our humanitarian survey consists of four attributes, each 
 \begin{table}[!htpb]
 \scriptsize
 \centering
-\begin{tabular}{c|ccccc|ccccc|ccc|c}
-Profile& 1 & 2 & 3 & 4 & 5 & 6&7&8&9&10&11&12&13&PR\\\hline
-1212& 2&	3&	7&	3&	7&	7&	1&	7&	7&	7&	4&	1&	7&	4.846\\
-1112&7	&1	&7	&7	&1	&2	&7	&5	&7	&3	&7	&7	&4	&5.000\\
-1312&7	&7	&7	&7	&5	&5	&7	&1	&1	&1	&7	&7	&3	&5.000\\
-3212&7	&7	&7	&5	&5	&1	&2	&7	&4	&7	&7	&7	&1	&5.154\\
-1122&1	&7	&7	&4	&7	&7	&5	&7	&4	&7	&3	&3	&7	&5.308\\
-2212&7	&5	&5	&7	&7	&7	&7	&2	&7	&4	&2	&2	&7	&5.308\\
-1222&7	&7	&4	&7	&4	&5	&7	&4	&3	&2	&7	&7	&7	&5.462\\
-1232&5	&7	&7	&5	&5	&5	&4	&5	&7	&5	&7	&7	&2	&5.462\\
-2312&7	&7	&7	&1	&5	&3	&4	&7	&2	&7	&7	&7	&7	&5.462\\
-2112&3	&7	&7	&4	&5	&4	&3	&7	&7	&7	&7	&7	&5	&5.615\\\hline
+\begin{tabular}{c|cccccc|cccccc|c}
+&\multicolumn{6}{c}{Sample Rank}&\multicolumn{6}{c}{Population Rank}\\
+Profile& 1 & 2 & 3 & 4 & 5 & 6&1&2&3&4&5&6&PR\\\hline
 
-
-
-
+1232& 0&2&0&0&1&2&0&4&0&0&2&4&4.2\\
+2112& 1&0&0&1&2&1&2&0&0&2&4&2&4.2\\
+1112& 1&1&0&0&0&3&2&2&0&0&0&6&4.2\\
+2321& 0&0&2&0&1&2&0&0&4&0&2&4&4.6\\
+2132& 1&0&0&0&1&3&2&0&0&0&2&6&4.8\\
+3221& 0&0&0&2&2&1&0&0&0&4&4&2&4.8\\
+3232& 0&0&0&2&1&2&0&0&0&4&2&4&5\\
+1323& 1&0&0&0&0&4&2&0&0&0&0&8&5\\
+2232& 1&0&0&0&0&4&2&0&0&0&0&8&5\\
+2231& 0&0&0&1&2&2&0&0&0&2&4&4&5.2\\
+1322& 0&0&0&1&2&2&0&0&0&2&4&4&5.2\\
+2312& 0&0&0&1&2&2&0&0&0&2&4&4&5.2\\
+2213& 0&0&0&1&2&2&0&0&0&2&4&4&5.2\\
+2121& 0&0&0&1&2&2&0&0&0&2&4&4&5.2\\
+3122& 0&0&0&1&2&2&0&0&0&2&4&4&5.2\\
+2211& 0&0&0&0&4&1&0&0&0&0&8&2&5.2\\
+3322& 0&0&0&1&2&2&0&0&0&2&4&4&5.2\\
+2311& 0&1&0&0&0&4&0&0&0&0&0&8&5.2\\
+2232& 0&1&0&0&0&4&0&2&0&0&0&8&5.2\\
+3113& 0&0&1&0&1&3&0&0&2&0&2&6&5.2\\
+3222& 0&0&0&2&0&3&0&0&0&4&0&6&5.2\\
+2332& 0&0&0&0&3&2&0&0&0&0&6&4&5.4\\
+2233& 0&0&0&1&1&3&0&0&0&2&2&6&5.4\\
+1221& 0&0&0&0&3&2&0&0&0&0&6&4&5.4\\
+3223& 0&0&0&0&3&2&0&0&0&0&6&4&5.4\\
+2313& 0&0&0&1&1&3&0&0&0&2&2&6&5.4\\
+3132& 0&0&0&1&1&3&0&0&0&2&2&6&5.4\\
+2133& 0&0&1&0&0&4&0&0&2&0&0&8&5.4\\
+3311& 0&0&1&0&0&4&0&0&0&0&2&8&5.4\\
+1122& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+2323& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+3212& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+2123& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+1223& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+3323& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+3111& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+3213& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+2322& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+1311& 0&0&0&1&0&4&0&0&0&2&0&8&5.6\\
+1213& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+1222& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+2122& 0&0&0&1&0&4&0&0&0&2&0&8&5.6\\
+3233& 0&0&0&0&2&3&0&0&0&0&4&6&5.6\\
+1123& 0&0&0&1&0&4&0&0&0&2&0&8&5.6\\
+1212& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3331& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+1332& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3211& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+1313& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3321& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+2212& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3333& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3123& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+2212& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+2113& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+1233& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+2333& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3122& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+1211& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3332& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3231& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+1312& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+3313& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
+2222& 0&0&0&0&1&4&0&0&0&0&2&8&5.8\\
 
 
 \end{tabular}
-\caption{{\small Top 10 ranked profiles for FBOs ($n=13,N=50$) }   }
+\caption{{\small Sample Ranking Table for the first $n=5$ FBO respondents, together with the corresponding maximum likelihood population ranking table for a population of $N=10$ respondents.}   }
 \label{Tab13}
-\end{table}
+\end{table}            
 
 
 \subsection{Profile Rank Confidence Intervals}
 
-Applying the results of Section 3, using the data in Table \ref{Tab13}, given a profile's sample ranking ($n=5$), we can construct confidence intervals for  population rankings with $N=10$. For example, consider the  profile 1232 which had the top ranking in the sample.  In a population with $N=10$ and $\rho_n(1232)=4.2$, the value $\lambda=\frac{1}{2}$ results in the confidence interval shown in Figure \ref{fig:4}. Since the range of individual rankings is $6-1=5$, we compute the interval length as $5\lambda = 2.5$. It follows that that the population ranking $\rho_k(2113)$ could be up to 1.6 less or .9 greater than the sample ranking $\rho_5(1232)=4.2$. After following up with organizations to whom we sent the survey, we received survey data from an additional 5 FBOs, and calculated $\rho_{10}(1232)=4.6$, which falls within our confidence interval (Figure \ref{fig:4}). This approach can be applied to any profile in Table \ref{Tab13} and provides a simple visualization  of the extent to which sample profile rankings can capture population profile rankings.
+Applying the results of Section 3, using the data in Table \ref{Tab13}, given a profile's sample ranking ($n=5$), we can construct confidence intervals for  population rankings with $N=10$. For example, consider the  profile 1232 which had the top ranking in the sample.  In a population with $N=10$ and $\rho_n(1232)=4.2$, the value $\lambda=\frac{1}{2}$ results in the confidence interval shown in Figure \ref{fig:4}. Since the range of individual rankings is $6-1=5$, we compute the interval length as $5\lambda = 2.5$. It follows that that the population ranking $\rho_k(2113)$ could be up to 1.6 less or .9 greater than the sample ranking $\rho_5(1232)=4.2$. After following up with organizations to whom we sent the survey, we received survey data from an additional 5 FBOs, and calculated $\rho_{10}(1232)=4.6$, which falls within our confidence interval (Figure \ref{fig:4}). This approach can be applied to any profile in Table \ref{Tab13} and provides a simple visualization  of the extent to which sample profile rankings can capture population profile rankings. 
 
 
 \begin{figure}[!htpb]
@@ -689,15 +741,15 @@ A final outcome of PR ACBC would be a visual representation of the top ranked pr
 
 
 \section{Conclusion}
-Unlike conjoint analysis of survey data where the target populations are large and more suitable for conventional statistical tools, we have introduced a simple, intuitive approach to a small population's profile rankings based on sample data. The population most likely to yield the given sample results are expected to have the same profile rankings as the sample's. We also provide a new type of 100\% confidence interval for profile rankings without using standard deviations, which can be used to quantify maximum possible survey response bias. Furthermore, we have shown that part-worth utilities obtained by multiple linear regression can only replicate sample profile rankings under special conditions, with the residuals indicating the errors in predicted rankings.
+Unlike conjoint analysis of survey data where the target populations are large and more suitable for conventional statistical tools, we have introduced a simple, intuitive approach to a small population's profile rankings based on sample data. The population most likely to yield the given sample results are expected to have the same profile rankings as the sample's. We also provide a new type of 100\% confidence interval for profile rankings without using standard deviations, which can be used to quantify maximum possible survey response bias. Furthermore, we have shown that part-worth utilities obtained by multiple linear regression can only replicate sample profile rankings under special conditions, with the residuals indicating the errors in predicted rankings. 
 
 For applications such as humanitarian disaster relief, sample profile ranks are more easily understandable to respondents than part-worth utilities. The intuitive nature of profile ranking allows quick and straightforward analysis of any small sample of disaster response organizations. Given that the sample  comprises a relatively significant portion of the overall population, 100$\%$ confidence intervals provide an absolute range of possible population profile rankings without the complexity of statistical inference. Consequently, for small organizations with low operating costs, these techniques may serve as an effective, yet affordable, alternative to more sophisticated ACBC survey utility-based analysis software. Moreover, a visualization of top-ranked or bottom-ranked profiles is a good way to summarize PR ACBC survey results.
 
-Major areas open to further research include analysis of  different ranking systems for various types of choice tournaments and application of PR ACBC methodology to other small population studies.
+Major areas open to further research include analysis of  different ranking systems for various types of choice tournaments and application of PR ACBC methodology to other small population studies. 
 
 
 
-\subsection*{Acknowledgements}
+\subsection*{Acknowledgements} 
 
 The authors would like to thank
 Erica Gralla, Jarrod Goenzel, Timotius Kartawijaya, and Mike Veatch for their valuable contributions to this work.
