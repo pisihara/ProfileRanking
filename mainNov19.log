@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.2)  17 NOV 2018 18:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.2)  19 NOV 2018 09:06
 entering extended mode
-**./main.tex
-(main.tex
+**./mainNov19.tex
+(mainNov19.tex
 LaTeX2e <2017-04-15>
 Babel <3.15> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
@@ -981,10 +981,10 @@ Package: gensymb 2003/07/02 v1.0 (WaS)
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 \@indexfile=\write3
-\openout3 = `main.idx'.
+\openout3 = `mainNov19.idx'.
 
 
-Writing index file main.idx
+Writing index file mainNov19.idx
 (C:\Users\pisihara\AppData\Roaming\MiKTeX\2.9\tex\latex\endnotes\endnotes.sty
 \c@endnote=\count148
 \endnotesep=\dimen169
@@ -1015,12 +1015,12 @@ LaTeX Info: Redefining \\ on input line 3056.
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (main.aux
+ (mainNov19.aux
 
 LaTeX Warning: Label `AL' multiply defined.
 
 )
-\openout1 = `main.aux'.
+\openout1 = `mainNov19.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
@@ -1124,9 +1124,9 @@ LaTeX Info: Redefining \ref on input line 54.
 LaTeX Info: Redefining \pageref on input line 54.
 LaTeX Info: Redefining \nameref on input line 54.
 
-(main.out) (main.out)
+(mainNov19.out) (mainNov19.out)
 \@outlinefile=\write5
-\openout5 = `main.out'.
+\openout5 = `mainNov19.out'.
 
 \symgns@font=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
@@ -1173,90 +1173,72 @@ Package pdftex.def Info: SimpleTourn.png  used on input line 120. on input line
  120.
 Package pdftex.def Info: Requested size: 126.47316pt x 108.39336pt on input lin
 e 120.
- [2] [3 <./SimpleTourn.png>] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 231.
+ [2] [3 <./SimpleTourn.png>] [4] [5] [6]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 302.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 231.
- [5] [6] [7]
-Overfull \hbox (49.83604pt too wide) in paragraph at lines 429--437
- [][] 
- []
-
-Package epstopdf Info: Source file: <sec4fig.eps>
-(epstopdf)                    date: 2018-11-16 15:38:10
-(epstopdf)                    size: 20871 bytes
-(epstopdf)             Output file: <sec4fig-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-16 15:43:01
-(epstopdf)                    size: 8423 bytes
-(epstopdf)             Command: <epstopdf --outfile=sec4fig-eps-converted-to.pd
-f sec4fig.eps>
-(epstopdf)             \includegraphics on input line 473.
-Package epstopdf Info: Output file is already uptodate.
-<sec4fig-eps-converted-to.pdf, id=153, pagebox=cropbox, 566.115pt x 813.0375pt>
-
-File: sec4fig-eps-converted-to.pdf Graphic file (type pdf)
-<use sec4fig-eps-converted-to.pdf>
-Package pdftex.def Info: sec4fig-eps-converted-to.pdf  used on input line 473. 
-on input line 473.
-Package pdftex.def Info: Requested size: 144.5345pt x 144.52916pt on input line
- 473.
-[8] [9 <./sec4fig-eps-converted-to.pdf>] [10] [11]
-<Confidence_Interval.png, id=198, 478.78876pt x 127.47626pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 302.
+ [7]
+[8] [9]
+<sec4fig.png, id=165, 1084.05pt x 754.82pt>
+File: sec4fig.png Graphic file (type png)
+<use sec4fig.png>
+Package pdftex.def Info: sec4fig.png  used on input line 521. on input line 521
+.
+Package pdftex.def Info: Requested size: 144.53743pt x 144.5345pt on input line
+ 521.
+ [10] [11 <./sec4fig.png>]
+<Confidence_Interval.png, id=185, 478.78876pt x 127.47626pt>
 File: Confidence_Interval.png Graphic file (type png)
 <use Confidence_Interval.png>
-Package pdftex.def Info: Confidence_Interval.png  used on input line 610. on in
-put line 610.
+Package pdftex.def Info: Confidence_Interval.png  used on input line 581. on in
+put line 581.
 Package pdftex.def Info: Requested size: 469.7577pt x 126.47807pt on input line
- 610.
+ 581.
 
-Overfull \hbox (52.92482pt too wide) in paragraph at lines 610--611
+Overfull \hbox (52.92482pt too wide) in paragraph at lines 581--582
  [][] 
  []
 
-[12]
-Overfull \hbox (1.4133pt too wide) in paragraph at lines 621--621
-[]\OT1/cmr/bx/n/14.4 Application: Pro-file Rank-ing Anal-y-sis of a Small Pop-
- []
-
-[13 <./Confidence_Interval.png>]
-<AttributeLevels.png, id=217, 494.44725pt x 469.15276pt>
+[12 <./Confidence_Interval.png>]
+<AttributeLevels.png, id=199, 494.44725pt x 469.15276pt>
 File: AttributeLevels.png Graphic file (type png)
 <use AttributeLevels.png>
-Package pdftex.def Info: AttributeLevels.png  used on input line 634. on input 
-line 634.
+Package pdftex.def Info: AttributeLevels.png  used on input line 605. on input 
+line 605.
 Package pdftex.def Info: Requested size: 415.5592pt x 505.9186pt on input line 
-634.
- [14] [15 <./AttributeLevels.png>]
-<Confidence_Interval_2.png, id=232, 481.8pt x 152.57pt>
+605.
+ [13] [14 <./AttributeLevels.png>]
+<Confidence_Interval_2.png, id=214, 481.8pt x 152.57pt>
 File: Confidence_Interval_2.png Graphic file (type png)
 <use Confidence_Interval_2.png>
-Package pdftex.def Info: Confidence_Interval_2.png  used on input line 673. on 
-input line 673.
+Package pdftex.def Info: Confidence_Interval_2.png  used on input line 644. on 
+input line 644.
 Package pdftex.def Info: Requested size: 415.56029pt x 198.7507pt on input line
- 673.
+ 644.
 
 
-LaTeX Warning: Reference `Table 13' on page 16 undefined on input line 679.
+LaTeX Warning: Reference `Table 13' on page 15 undefined on input line 650.
 
-<Fig6.png, id=234, 1127.21124pt x 796.9775pt>
+[15]
+<Fig6.png, id=222, 1127.21124pt x 796.9775pt>
 File: Fig6.png Graphic file (type png)
 <use Fig6.png>
-Package pdftex.def Info: Fig6.png  used on input line 683. on input line 683.
+Package pdftex.def Info: Fig6.png  used on input line 654. on input line 654.
 Package pdftex.def Info: Requested size: 415.54805pt x 198.73312pt on input lin
-e 683.
-[16 <./Confidence_Interval_2.png>] [17 <./Fig6.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 727.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 727.
- (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 727.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 727.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D3CFCF61DABC7235B693C5F3A1AD3C01;1457.
+e 654.
+ [16 <./Confidence_Interval_2.png> <./Fig6.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 698.
+ [17] [18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 698.
+ (mainNov19.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 698.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 698.
+Package rerunfilecheck Info: File `mainNov19.out' has not changed.
+(rerunfilecheck)             Checksum: 0E5C5A5B8AE1570802AD9981F19ED42B;1481.
 
 
 LaTeX Warning: There were undefined references.
@@ -1266,13 +1248,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12825 strings out of 493312
- 189301 string characters out of 3138891
- 336930 words of memory out of 3000000
- 16065 multiletter control sequences out of 15000+200000
+ 12822 strings out of 493312
+ 189260 string characters out of 3138891
+ 335228 words of memory out of 3000000
+ 16063 multiletter control sequences out of 15000+200000
  14990 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,42p,1641b,494s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,42p,1646b,455s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\pisihara\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
 00\tcrm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
 10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1289,9 +1271,9 @@ C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (18 pages, 797663 bytes).
+Output written on mainNov19.pdf (18 pages, 837188 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
+ 314 PDF objects out of 1000 (max. 8388607)
  73 named destinations out of 1000 (max. 500000)
  183 words of extra memory for PDF output out of 10000 (max. 10000000)
 

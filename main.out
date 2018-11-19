@@ -1,15 +1,19 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Maximum Likelihood Estimation of Profile Rankings}{}% 2
+\BOOKMARK [1][-]{section.2}{PR-ACBC Methodology}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Simple Example}{section.2}% 3
-\BOOKMARK [1][-]{section.3}{Confidence Intervals}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{Population Ranking Range}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.2}{Application}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Multiple Regression of Profile Rankings}{}% 7
-\BOOKMARK [2][-]{subsection.4.1}{Analytic Approach}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.2}{Geometric Interpretation}{section.4}% 9
-\BOOKMARK [1][-]{section.5}{Profile Ranking Analysis of a Small Population Survey}{}% 10
-\BOOKMARK [2][-]{subsection.5.1}{Humanitarian Disaster Relief}{section.5}% 11
-\BOOKMARK [2][-]{subsection.5.2}{Ranking Method}{section.5}% 12
-\BOOKMARK [2][-]{subsection.5.3}{Profile Rank Confidence Intervals}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.4}{Visualization of Top Ranked Profiles}{section.5}% 14
-\BOOKMARK [1][-]{section.6}{Conclusion}{}% 15
+\BOOKMARK [2][-]{subsection.2.2}{A Fundamental Observation}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Analytic Approach}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Geometric Interpretation}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Maximum Likelihood Estimation}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Known Population Size}{subsection.2.5}% 8
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Unknown Population Size}{subsection.2.5}% 9
+\BOOKMARK [2][-]{subsection.2.6}{Population Ranking Intervals}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.7}{Population Ranking Range}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.8}{Application}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.9}{Attribute Decomposition Via 2 Dimensional Multimensional Scaling}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.10}{Application: Profile Ranking Analysis of a Small Population Disaster Relief Survey}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.11}{Humanitarian Disaster Relief}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.12}{Ranking Method}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.13}{Profile Rank Confidence Intervals}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.14}{Visualization of Top Ranked Profiles}{section.2}% 18
+\BOOKMARK [1][-]{section.3}{Conclusion}{}% 19
