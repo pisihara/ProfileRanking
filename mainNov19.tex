@@ -27,7 +27,7 @@
 \usepackage{hyperref}
 \usepackage{authblk}
 
-\title {Profile Ranking Adaptive Choice-Based Conjoint Analysis: A Complementary Approach to Utility-Based Analysis of Small Populations}
+\title {Profile Ranking Adaptive Choice-Based Conjoint Analysis: A Complementary Approach to Utility-Based Analysis for Small Populations}
 
  \author[1]{}
 % \author[1]{Skyler Laney\thanks{skyler.laney@my.wheaton.edu}}
@@ -207,91 +207,6 @@ The main questions we will develop in the sequel are:
 \item POPULATION RANKING INFERENCE \emph{what can we infer from the SRT and SAL tables about the population profile ranking  (PPR) and population attribute level (PAL) tables?}, the latter two meaning the tables for all population respondents; and
 \item CHOICE TASK PREDICTION AND ATTRIBUTE IMPORTANCE \emph{for the purpose of choice task predictions and attribute importance rankings, how does information obtainable from the SRT and SAL compare with that obtainable from partworth utilities?}
 \end{itemize}
-
-\subsection{Population Ranking Inference}
-\subsection{Maximum Likelihood Estimation of the PRT}
-
-\subsubsection{Known Population Size}
-Let us assume the population has size $N=7$, and that our sample was a random selection of 4 out of these 7. The number $N=7$ is for simplicity of illustrating the relevant conmputations only, and could be any number $N>n=4$.  We will now use a multivariate hypergeometric distribution to obtain the maximum likelihood estimate (MLE) PPR, meaning the population which was must likely to have yielded the observed sample outcomes.  
-
-To begin, we create what we shall call a \emph{factor table} (Table \ref{FT}) 
-\begin{table}[!htpb]
-	\scriptsize
-	\centering
-	\begin{tabular}{r|ccc|c}\hline
-		\multicolumn{5}{c}{Choose the $k=3$ largest factors $f_{ij}$ for a population size $N=n+k=n+3$.}\\ 
-		+3& $f_{13}=4/3$ & $f_{23}=5/3$&$f_{33}=4/3$&\\
-		+2& $f_{12}=3/2$ & $f_{22}=2$ &$f_{32}=3/2 $&\\
-		+1& $f_{11}=2$  &$f_{21}=3$&$f_{31}=2 $ &\\\hline
-		Number observed in sample:&$n_1=1$& $n_2=2$ & $n_3=1$ & Sample size: $n=4$\\\hline
-		Ranking:&1=$O_1$&2=$O_3$&3=$O_9$
-	\end{tabular}
-	\caption{Probability factor table. The $k=3$ largest factors $f_{ij}=1+(n_i/j)$ are used to determine the MLE PRT for a population size $N=n+k=4+3=7$. }
-	\label{FT}
-\end{table}
-{\flushleft  Let} $N_j$ denote the number of rankings $O_j$ in the PRT.  The number of factors $a_j$ chosen from column $j$ indicates that a  PRT with $N_j= n_j+a_j$ is a MLE.    In our case, the latter is not unique.  One choice of 3 largest factors is $f_{11}=2, f_{21}=3,f_{22}=2$ so that $a_1=1$, $a_2=2$ and $a_3=0$. A population $Y$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=4$, and $N_3=n_3+a_3=1$ is a MLE. Another choice of 3 largest factors  is $f_{11}=2, f_{21}=3,f_{31}=1$ so that $a_1=1$, $a_2=1$ and $a_3=0$. Population $Z$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=3$, and $N_3=n_3+a_3=2$ is also MLE. We can verify this is so by computing the respective probabilities $p_Y$ and $p_Z$ that our observed sample arises from erspective populations $Y$ and $Z$ :
-
-\begin{equation}
-p_Y=\frac{C(2,1)C(4,2)C(1,1)}{C(7,4)}=\frac{f_{11} \cdot f_{21}f_{22}}{C(7,4)}
-\end{equation}
-{\flushleft and }
-\begin{equation}
-p_Z=\frac{C(2,1)C(3,2)C(2,1)}{C(7,4)}=\frac{f_{11}\cdot f_{21}\cdot f_{31}}{C(7,4).}
-\end{equation}
-{\flushleft This} procedure generalizes to any number of rankings $m$ which appear in a sample of sample $n$ ( Oberhofer and Kaufman (1987)). Let $n=\sum_{j=1}^m n_j$ where $n_j$ is the number of ranking $j$ appearing in the sample.  Form the probability factor table with $f_{ij}=1+\frac{n_i}{j}$ ($i=1,...,r$, $j=1,...,m$ and $N=n+r$.)  Choose the $r$ largest factors in the latter table and let $a_j$ be the number of factors chosen in column $j$.  Then a population with a PRT such  $N_j=n_j+a_j$ ($j=1,...,m$) is a MLE. 
-\subsubsection{Unknown Population Size}
-
-
-Let us assume now that rather than having a specified size, the population size is an unknown value $N$.  In this case, we wish to determine the probability $p_i$  that a member of the population has ranking $O_i$.  As before, we assume that our sample is drawn randomly from the population. The probability $p$ that the observed sample consisting of one $O_1$, two $O_3$'s and one $O_9$ is
-
-\begin{equation}
-p=f(p_1,p_3,p_9)=\frac{4!}{1!2!1!}[p_1p_3^2p_9],
-\end{equation}
-\label{eq:1}
-{\flushleft where} $g(p_1,p_3,p_9)=p_1+p_3+p_9=1$.
-The values of $p_1^*,p_3^*,$ and $p_9^*$ which maximize $H(p_1,p_3,p_9)=\ln (f(p_1,p_3,p_9))$ (and hence also maximizes $p=f(p_1,p_3,p_9)$)  are obtained using Lagrange multipliers:
-\begin{eqnarray*}
-	\nabla H(p_1^*,p_3^*,p_9^*) & = & \lambda \nabla g
-	(p_1^*,p_3^*,p_9^*),
-\end{eqnarray*}
-{\flushleft and therefore}
-\begin{eqnarray*}
-	\frac{1}{p_1^*} & = & \lambda\\
-	\frac{2}{p_23^*} & = & \lambda\\
-	\frac{1}{p_9^*} & = & \lambda.
-\end{eqnarray*}
-{\flushleft (The scalar quantity $\lambda$ is called a Lagrange multiplier.) Using} $p_1^*+p_3^*+p_9^*=1$ gives $\frac{1}{\lambda} + \frac{2}{\lambda}+\frac{1}{\lambda}=1$ and so $ \lambda = 4$.  Hence, the values $p_1^*=\frac{1}{4}, p32^*=\frac{1}{2}$, $p_9^*=\frac{1}{4}$ maximize the probability of the observed sample outcomes.  
-
-In general, let $n_k$ be the number of sample outcomes $O_k$ ($k=1,2,...,K$) and let $p_k$ be the probability that a respondent in the population  has outcome $O_k$ $(k= 1, 2, ..., K)$.  The likelihood function $f(p_1, p_2, ..., p_K)$ giving the probability of observing the sample values $n_1, ..., n_{K}$ is given by
-
-\begin{equation}
-f(p_1, ...., p_K)= \frac{n!}{n_1!n_2!\cdot\cdot\cdot n_K!} \prod_{k=1}^K p_k^{n_k},
-\end{equation}
-\label{eq:4}
-
-{\flushleft with} $\sum_{k=1}^{K}n_k=n$ and $\sum_{k=1}^{K}p_k=1$.
-We seek to find the values $p_1^*, ..., p_{K}^*$ which maximize the likelihood function $f$, or equivalently, the log-likelihood function
-
-\begin{equation}
-H(p_1, ..., p_K)=\ln f = \ln(n!) - \sum_{k=1}^{K} n_k! +\sum_{k=1}^{K} n_k\ln(p_k),
-\end{equation}
-\label{eq:5}
-{\flushleft subject} to the constraint $g(p_1, ..., p_{K})=p_1+p_2+...+p_K=1$.  Properties of gradients imply that the optimal values $p_i^*$ must satisfy
-
-\begin{equation}
-\nabla H(p_1^*, ..., p_K^*) = \lambda \nabla g(p_1^*, ..., p_{K}^*).
-\end{equation}
-\label{eq:6}
-{\flushleft It} follows that for $k=1, ..., K$,
-
-\begin{equation}
-\frac{n_k}{p_k^*}=\lambda.
-\end{equation}
-\label{eq:7}
-{\flushleft Hence,} $n=\sum_{k=1}^{K} n_k =  \lambda \sum_{k=1}^{K} p_k^* = \lambda$, and so the probabilities $p_k^* = \frac{n_k}{n}$ give the maximum likelihood of the observed sample outcomes $n_k$ ($k=1, 2, ..., K$).  For any sample of size $n$ and number $n_k$ of observed outcomes $O_k$ ($k=1, 2, ...K$), the maximum likelihood probabilities $p_k^*=\frac{n_k}{n}$
-indicate that for a population of size $N$, the expected number $N_k$ of outcomes $O_k$ is given by $E(N_k)=p_k N.$  A maximum-likelihood population could be simulated by augmenting the observed $n$ sample outcomes, where the probability of outcome $O_k$ at each draw is given by $p_k$.   For a large number of such randomly constructed populations of size $N$, for each $k$ the average number of population outcomes $O_k$ is approximately $p_k N$.
-
-
 
 \subsection{A Fundamental Observation}
 In this section we explain why  least squares multiple  regression (LSRM) will not in general give exact sample profile rankings. In other words, part-worth utilities can only approximate sample rankings.
@@ -524,12 +439,96 @@ The conditions  (12)-(15) for whether or not the LSMR  profile ranking predictio
 \end{figure}
 
 
+\subsection{Maximum Likelihood Estimation of the PRT}
+We will proceed to develop PR-ACBC methodology without assuming any knowledge of partworth utilitites.  
+\subsubsection{Known Population Size}
+Let us assume the population has size $N=7$, and that our sample was a random selection of 4 out of these 7. The number $N=7$ is for simplicity of illustrating the relevant conmputations only, and could be any number $N>n=4$.  We will now use a multivariate hypergeometric distribution to obtain the maximum likelihood estimate (MLE) PPR, meaning the population which was must likely to have yielded the observed sample outcomes.  
 
-\newpage
+To begin, we create what we shall call a \emph{factor table} (Table \ref{FT}) 
+\begin{table}[!htpb]
+	\scriptsize
+	\centering
+	\begin{tabular}{r|ccc|c}\hline
+		\multicolumn{5}{c}{Choose the $k=3$ largest factors $f_{ij}$ for a population size $N=n+k=n+3$.}\\ 
+		+3& $f_{13}=4/3$ & $f_{23}=5/3$&$f_{33}=4/3$&\\
+		+2& $f_{12}=3/2$ & $f_{22}=2$ &$f_{32}=3/2 $&\\
+		+1& $f_{11}=2$  &$f_{21}=3$&$f_{31}=2 $ &\\\hline
+		Number observed in sample:&$n_1=1$& $n_2=2$ & $n_3=1$ & Sample size: $n=4$\\\hline
+		Ranking:&1=$O_1$&2=$O_3$&3=$O_9$
+	\end{tabular}
+	\caption{Probability factor table. The $k=3$ largest factors $f_{ij}=1+(n_i/j)$ are used to determine the MLE PRT for a population size $N=n+k=4+3=7$. }
+	\label{FT}
+\end{table}
+{\flushleft  Let} $N_j$ denote the number of rankings $O_j$ in the PRT.  The number of factors $a_j$ chosen from column $j$ indicates that a  PRT with $N_j= n_j+a_j$ is a MLE.    In our case, the latter is not unique.  One choice of 3 largest factors is $f_{11}=2, f_{21}=3,f_{22}=2$ so that $a_1=1$, $a_2=2$ and $a_3=0$. A population $Y$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=4$, and $N_3=n_3+a_3=1$ is a MLE. Another choice of 3 largest factors  is $f_{11}=2, f_{21}=3,f_{31}=1$ so that $a_1=1$, $a_2=1$ and $a_3=0$. Population $Z$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=3$, and $N_3=n_3+a_3=2$ is also MLE. We can verify this is so by computing the respective probabilities $p_Y$ and $p_Z$ that our observed sample arises from erspective populations $Y$ and $Z$ :
+
+\begin{equation}
+p_Y=\frac{C(2,1)C(4,2)C(1,1)}{C(7,4)}=\frac{f_{11} \cdot f_{21}f_{22}}{C(7,4)}
+\end{equation}
+{\flushleft and }
+\begin{equation}
+p_Z=\frac{C(2,1)C(3,2)C(2,1)}{C(7,4)}=\frac{f_{11}\cdot f_{21}\cdot f_{31}}{C(7,4).}
+\end{equation}
+{\flushleft This} procedure generalizes to any number of rankings $m$ which appear in a sample of sample $n$ ( Oberhofer and Kaufman (1987)). Let $n=\sum_{j=1}^m n_j$ where $n_j$ is the number of ranking $j$ appearing in the sample.  Form the probability factor table with $f_{ij}=1+\frac{n_i}{j}$ ($i=1,...,r$, $j=1,...,m$ and $N=n+r$.)  Choose the $r$ largest factors in the latter table and let $a_j$ be the number of factors chosen in column $j$.  Then a population with a PRT such  $N_j=n_j+a_j$ ($j=1,...,m$) is a MLE. 
+\subsubsection{Unknown Population Size}
+
+
+Let us assume now that rather than having a specified size, the population size is an unknown value $N$.  In this case, we wish to determine the probability $p_i$  that a member of the population has ranking $O_i$.  As before, we assume that our sample is drawn randomly from the population. The probability $p$ that the observed sample consisting of one $O_1$, two $O_3$'s and one $O_9$ is
+
+\begin{equation}
+p=f(p_1,p_3,p_9)=\frac{4!}{1!2!1!}[p_1p_3^2p_9],
+\end{equation}
+\label{eq:1}
+{\flushleft where} $g(p_1,p_3,p_9)=p_1+p_3+p_9=1$.
+The values of $p_1^*,p_3^*,$ and $p_9^*$ which maximize $H(p_1,p_3,p_9)=\ln (f(p_1,p_3,p_9))$ (and hence also maximizes $p=f(p_1,p_3,p_9)$)  are obtained using Lagrange multipliers:
+\begin{eqnarray*}
+	\nabla H(p_1^*,p_3^*,p_9^*) & = & \lambda \nabla g
+	(p_1^*,p_3^*,p_9^*),
+\end{eqnarray*}
+{\flushleft and therefore}
+\begin{eqnarray*}
+	\frac{1}{p_1^*} & = & \lambda\\
+	\frac{2}{p_23^*} & = & \lambda\\
+	\frac{1}{p_9^*} & = & \lambda.
+\end{eqnarray*}
+{\flushleft (The scalar quantity $\lambda$ is called a Lagrange multiplier.) Using} $p_1^*+p_3^*+p_9^*=1$ gives $\frac{1}{\lambda} + \frac{2}{\lambda}+\frac{1}{\lambda}=1$ and so $ \lambda = 4$.  Hence, the values $p_1^*=\frac{1}{4}, p32^*=\frac{1}{2}$, $p_9^*=\frac{1}{4}$ maximize the probability of the observed sample outcomes.  
+
+In general, let $n_k$ be the number of sample outcomes $O_k$ ($k=1,2,...,K$) and let $p_k$ be the probability that a respondent in the population  has outcome $O_k$ $(k= 1, 2, ..., K)$.  The likelihood function $f(p_1, p_2, ..., p_K)$ giving the probability of observing the sample values $n_1, ..., n_{K}$ is given by
+
+\begin{equation}
+f(p_1, ...., p_K)= \frac{n!}{n_1!n_2!\cdot\cdot\cdot n_K!} \prod_{k=1}^K p_k^{n_k},
+\end{equation}
+\label{eq:4}
+
+{\flushleft with} $\sum_{k=1}^{K}n_k=n$ and $\sum_{k=1}^{K}p_k=1$.
+We seek to find the values $p_1^*, ..., p_{K}^*$ which maximize the likelihood function $f$, or equivalently, the log-likelihood function
+
+\begin{equation}
+H(p_1, ..., p_K)=\ln f = \ln(n!) - \sum_{k=1}^{K} n_k! +\sum_{k=1}^{K} n_k\ln(p_k),
+\end{equation}
+\label{eq:5}
+{\flushleft subject} to the constraint $g(p_1, ..., p_{K})=p_1+p_2+...+p_K=1$.  Properties of gradients imply that the optimal values $p_i^*$ must satisfy
+
+\begin{equation}
+\nabla H(p_1^*, ..., p_K^*) = \lambda \nabla g(p_1^*, ..., p_{K}^*).
+\end{equation}
+\label{eq:6}
+{\flushleft It} follows that for $k=1, ..., K$,
+
+\begin{equation}
+\frac{n_k}{p_k^*}=\lambda.
+\end{equation}
+\label{eq:7}
+{\flushleft Hence,} $n=\sum_{k=1}^{K} n_k =  \lambda \sum_{k=1}^{K} p_k^* = \lambda$, and so the probabilities $p_k^* = \frac{n_k}{n}$ give the maximum likelihood of the observed sample outcomes $n_k$ ($k=1, 2, ..., K$).  For any sample of size $n$ and number $n_k$ of observed outcomes $O_k$ ($k=1, 2, ...K$), the maximum likelihood probabilities $p_k^*=\frac{n_k}{n}$
+indicate that for a population of size $N$, the expected number $N_k$ of outcomes $O_k$ is given by $E(N_k)=p_k N.$  A maximum-likelihood population could be simulated by augmenting the observed $n$ sample outcomes, where the probability of outcome $O_k$ at each draw is given by $p_k$.   For a large number of such randomly constructed populations of size $N$, for each $k$ the average number of population outcomes $O_k$ is approximately $p_k N$.
+
+
+
+
+
 
 \subsection{Population Ranking Intervals}
 
-Maximum likelihood  provides some insight into the expected population profile rankings. In this section, given ranking data for a sample consisting of $n$ survey respondents selected at random from a population with $N> n$ respondents, we will show how to construct confidence  intervals   which are guaranteed to include the population profile rankings.
+Maximum likelihood  provides a point estimate into the population profile rankings, meaning the PRT most likely to have produced the observed sample. In this section, given ranking data for a sample consisting of $n$ survey respondents selected at random from a population with $N> n$ respondents, we will show how to construct for each profile ranking intervals   which are guaranteed to include the population profile rankings.
 
 \subsection{Population Ranking Range}
 
@@ -594,7 +593,7 @@ These results can be used to quantify the possible consequences of survey respon
 
 In this section we show how to apply PR ACBC methodology to an actual survey.
 
-\subsection{Humanitarian Disaster Relief}
+\section{ACBC Survey of Humanitarian Disaster Relief Organizations}
 
 PR-based ACBC methodology for analyzing small populations has many possible applications. In disaster relief, effectiveness of a response may depend on the quality of collaboration between organizations with a broad diversity of religious and ideological perspectives. For effective coordination of relief, it is important that humanitarian organizations understand the unique traits and characteristics that shape their disaster response decisions. Through comparison of these factors, it is possible to design optimal partnerships and joint endeavors between organizations that may fulfill distinct, yet complimentary, humanitarian roles. Our research focused on how faith based organizations (FBOs) prioritize key attributes affecting their decision whether or not to respond to an international humanitarian disaster.
 
