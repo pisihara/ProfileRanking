@@ -625,50 +625,56 @@ To this end, we designed an ACBC survey that creates disaster profiles with attr
 
 \subsection{Survey Data}
 
-As shown in Figure 4, our humanitarian survey consists of four attributes, each with three levels. Thus, the number of possible profiles is $3^4=81$. These are identified by four digit numbers $X=x_1x_2x_3x_4$ where profile $X$ has level $x_1$ for the first attribute, level $x_2$ for the second attribute, level $x_3$ for the third attribute, and level $x_4$ for the fourth attribute. In the tournament stage of the competition, there are four rounds, in which sixteen profiles face off against each other in head to head match-ups, much like the FIFA World Cup Round of 16. The competing profiles are selected from the 81 possible profiles based on the respondent's BYO preferences. We assign a ranking of 1 to the tournament winner, 2 to the runner up, 3 to the semifinal losers, 4 to the quarterfinal losers, 5 to the profiles that are eliminated in the first round, and 6 to those that do not appear in the tournament. The survey was first deployed to FBOs, with the results shown in Table \ref{Tab13}. 
+As shown in Figure 4, our humanitarian survey consists of four attributes, each with three levels. Thus, the number of possible profiles is $3^4=81$. These are identified by four digit numbers $X=x_1x_2x_3x_4$ where profile $X$ has level $x_1$ for the first attribute, level $x_2$ for the second attribute, level $x_3$ for the third attribute, and level $x_4$ for the fourth attribute. In the tournament stage of the competition, there are four rounds, in which sixteen profiles face off against each other in head to head match-ups, much like the FIFA World Cup Round of 16. The competing profiles are selected from the 81 possible profiles based on the respondent's BYO preferences. We assign a ranking of \# 1 to the tournament winner, \# 2 to the runner up, \# 3 to the semifinalist who lost to \#1, \# 4 to the quarterfinalist who lost to \#1, \# 5 to the quarter-finalist who lost to \#2 and so on. Profiles that do not appear in the tournament are ranked \# 24.5 (the average of \# 17 through \#32). 
+
+An Excel file keeps track of each responding organization's tournament and the PAL ranking of each survey.
 
 
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=2.75in, height=2in]{PAL2.png}
+		\includegraphics[width=2.75in, height=2in]{PAL1.png}
+	\caption{{\small Respondent 1's tournament (left) and profile rankings for organizations 1 and 2 (right). The latter is processed by the MATLAB script in Table \ref{MAT1} to obtain the PAL rankings. }}
+	\label{AL}
+\end{figure}
 
-\begin{table}[!htpb]
-\scriptsize
-\centering
-\begin{tabular}{c|ccccc|ccccc|ccc|c}
-Profile& 1 & 2 & 3 & 4 & 5 & 6&7&8&9&10&11&12&13&PR\\\hline
-1212& 2&	3&	7&	3&	7&	7&	1&	7&	7&	7&	4&	1&	7&	4.846\\
-1112&7	&1	&7	&7	&1	&2	&7	&5	&7	&3	&7	&7	&4	&5.000\\
-1312&7	&7	&7	&7	&5	&5	&7	&1	&1	&1	&7	&7	&3	&5.000\\
-3212&7	&7	&7	&5	&5	&1	&2	&7	&4	&7	&7	&7	&1	&5.154\\
-1122&1	&7	&7	&4	&7	&7	&5	&7	&4	&7	&3	&3	&7	&5.308\\
-2212&7	&5	&5	&7	&7	&7	&7	&2	&7	&4	&2	&2	&7	&5.308\\
-1222&7	&7	&4	&7	&4	&5	&7	&4	&3	&2	&7	&7	&7	&5.462\\
-1232&5	&7	&7	&5	&5	&5	&4	&5	&7	&5	&7	&7	&2	&5.462\\
-2312&7	&7	&7	&1	&5	&3	&4	&7	&2	&7	&7	&7	&7	&5.462\\
-2112&3	&7	&7	&4	&5	&4	&3	&7	&7	&7	&7	&7	&5	&5.615\\\hline
-\end{tabular}
-\caption{{\small Top 10 ranked profiles for FBOs ($n=13,N=50$) }   }
-\label{Tab13}
+\begin{table}[h]
+	\flushleft
+	\begin{tabular}{|l|}\toprule
+		\parbox[b]{6.25in}{\lstinputlisting[style=Matlab-editor]{PALRanking.m}}\\\bottomrule
+	\end{tabular}
+\caption{Main MATLAB script to compute PAL rankings.}
+	\ref{MAT1}
 \end{table}
 
-{\bf TASK 3 ADD SIMILAR TABLE FOR NON FBO DATA}
+\begin{table}[h]
+	\flushleft
+	\begin{tabular}{|l|}\toprule
+		\parbox[b]{6.25in}{\lstinputlisting[style=Matlab-editor]{PALRanking.m}}\\\bottomrule
+	\end{tabular}
+	\caption{Respondent Class used by the main script in Table \ref{MAT1}}
+		\ref{MAT12}
+	\end{table}
+
+
+
+{\bf TASK 1 Complete the Excel Data Files for FBOs and NON FBOs}
 
 
 \subsection{Survey Analysis}
-{\bf TASK 4 MLE}
+
+{\bf TASK 2 Population Profile and PAL Ranking Intervals}
 
 
 
-{\bf TASK 5 Population Profile Rank Intervals}
-
-
-
-{\bf Task 6 MDS of Profile Attributes }
+{\bf Task 3 MDS of PAL rankings }
 
 
 \subsection{Comparison with Part-worth Utilities}
 
-{\bf Task 7 Choice task prediction accuracy}
+{\bf Task 4 Choice task prediction accuracy}
 
-{\bf Task 8 Attribute Importances}
+{\bf Task 5 Attribute Importances}
 
 
 
