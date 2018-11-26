@@ -74,7 +74,7 @@
  \vspace{.7in}
 
  \begin{abstract}
-To analyze Adaptive Choice-Based Conjoint (ACBC) survey samples from small populations, a new methodology called profile ranking based ACBC (PR-ACBC) is proposed as a complement to utility based  ACBC. PR-ACBC offers a form of validation especially useful for small survey data with high variances in partworth utilities. Without requiring knowledge of partworth utilities, PR-ACBC deduces from sample data the maximum likelihood population ranking for known population sizes using a multivariate hypergeometric distribution, and for unknown population sizes using the Lagrange multiplier based optimization. A population ranking interval can easily be computed  for each profile as an interval guaranteed to include  the unknown population profile ranking.Similarly, individual attribute level rankings from the sample can be used to form attribute level intervals which must contain the unknown population attribute level rankings.  The sample attribute level rankings are used  for  multidimensional scaling (MDS) giving a two-dimensional visual representation showing similarities in  attribute levels and respondents.  Attribute level rankings are then compared with partworth utilities with respect to accuracy of choice task predictions and ranking of attribute importances. Finally, PR-ACBC methodology is applied to a recent survey administered to  a small population of faith-based and non-faith based disaster relief organizations belonging to the National Voluntary Organizations Active in Disaster (VOAD).
+To analyze Adaptive Choice-Based Conjoint (ACBC) survey samples from small populations, a new methodology called profile ranking based ACBC (PR-ACBC) is proposed as a complement to utility based  ACBC. PR-ACBC offers a form of validation especially useful for small survey data with high variances in partworth utilities. Without requiring knowledge of partworth utilities, PR-ACBC begins with a simple computation using choice task data to obtain both individual and sample mean profile attribute level (PAL) rankings. the Maximum likelihood estimation of profile rankings for both known population size $N$ (multivariate hypergeometric distribution) and unkown $N$ (Lagrange multiplier optimization) is then used to obtain point estimates of population PALs. A PAL ranking interval can easily be computed  for each level as an interval guaranteed to include  each PAL for any specified vale of $N$. The sample PAL rankings are also used  for  multidimensional scaling (MDS) which offers a two-dimensional visual representation of similarities/dissimilarities in respondents or PALs.  Attribute level rankings are then compared with partworth utilities with respect to accuracy of choice task predictions and ranking of attribute importances. Finally, PR-ACBC methodology is applied to a recent survey administered to  a small population of disaster relief organizations belonging to the National Voluntary Organizations Active in Disaster (VOAD).
 
 \end{abstract}
 
@@ -116,92 +116,38 @@ In this section we introduce PR-ACBC methodology using a simple example.
 
 \subsection{Simple Example}
 
-Consider a generic ACBC survey with just 2 attributes each having 2 levels. We designate the 4 possible profiles $A=11, B=10, C=01, D=00$, where $X=x_1x_2$ designates that profile $X$ has level $x_1$ for the first attribute and level $x_2$ for the second attribute. Suppose we have obtained by anonymous survey choice tournament results  for $n=4$ respondents from a population of size $N>4$.  A sample tournament outcome is shown in Figure \ref{SimpleTourn}
+Consider a generic ``toy'' ACBC survey with just 2 attributes each having 2 levels. We designate the 4 possible profiles $A=11, B=10, C=01, D=00$, where $X=x_1x_2$ designates that profile $X$ has level $x_1$ for the first attribute and level $x_2$ for the second attribute. Suppose we have obtained by anonymous survey choice tournament results  for $n=4$ respondents from a population of size $N>4$.  A sample tournament outcome is shown in Figure \ref{SimpleTourn}
 \begin{figure}[!htpb]
 \centering
 \includegraphics[width=1.75in, height=1.5in]{SimpleTourn.png}
-\caption{One possible tournament outcome ranks profile A=11 first, B=01 second, C=10 is ranked third and D=00 fourth.  }
+\caption{A respondent whose tournament data ranks profile A=11 first, C=01 second, B=10 is ranked third and D=00 fourth.  }
 \label{SimpleTourn}
 \end{figure}
 
-{\flushleft For} this respondent, profile A=11 is ranked 1 (tournament winner), profile B=10 is ranked 2 (runner-up), profiles C=01 third and D=00 ranked 4. The rationale for the latter 2 rankings is that assuming transitivity in match outcomes, the highest C could be ranked if all profiles were paired is 2, while D could only be ranked as high as 3. Note that there are essentially 24 different possible tournament outcomes, each specifying a ranking or permutation of A,B, C and D.(Table \ref{Tab3}):
+{\flushleft This} respondent profile ranking is denoted ACBD, meaning profile A=11 is ranked 1 (tournament winner), profile C=01 is ranked 2 (runner-up), profile B=10 third, and D=00 ranked 4th. The rationale for the latter 2 rankings is that assuming transitivity in match outcomes, the highest B could be ranked if all profiles were paired is 2, while D could only be ranked as high as 3. 
+
+In our toy survey with just 4 possible profiles, there are already 4!=24 possible profile rankings. In the next section we consider an actual survey of disaster relief organizations (DROs) with 4 attributes containing 3 levels each, administered to a population of roughly $N=50$ faith based disaster relief organizations. This survey  has 81 profiles and 81!=5 797 126 020 747 367 985 879 734 231 578 109 105 412 357 244 731 625 958 745 865 049 716 390
+ 179 693 892 056 256 184 534 249 745 940 480 000 000 000 000 000 000 profile rankings,  For a sample size of $n=13$, and a choice task stage  which provides each respondent's ranking of 16 profiles, a meaningful ranking of  all the profiles is evidently impossible. As a result, our approach to ranking profiles, one more akin to using partworth utilities to determine profile choices, is to rank individual attribute levels rather than profiles as a whole. 
+
+Our toy survey has just four profile levels which we denote $(x_1,x_2)$ where $x_1$ is the attribute number (1 or 2) and $x_2$ the level number (0 or 1). Note that each level appears in exactly two profiles. For each attribute level, we compute a respondent's profile attribute level (PAL) ranking as the average of the two profile rankings in which the level appears.  For example since $(1,0)$ appears in profiles $C$ and $D$, if a respondent's profile ranking is ACBD, then the $(1,0)$ PAL ranking is (2+4)/2=3. In our DRO survey, there are  a total of 12 PALs $(x_1,x_2)$ with $x_1\in\{1,2,3,4\}$ and $x_2\in\{1,2,3\}$. Each PAL occurs in 27 out of the 81 profiles and has roughly a 99.85\% chance of appearing in a  in a single elimination round of 16 tournament (and hence have a ranking between 1 and 16). PALs not appearing in a tournament are assigned a ranking of 24.5 (the average of rankings 17 through 32 which would be assigned to the first round losers had one earlier round been included in the tournament.)  
+
+
+  As a result, each respondent's survey data provides two rankings of each attribute level, namely the rankings of the profiles in which the attribute  level appears. For the ranking ACBD,   with Consider for example a sample of size $n=4$ ranking our example survey as ABCD, ACBD, ACBD and  BACD \ref{SAL}.
 
 \begin{table}[!htpb]
-	\scriptsize
+	
 	\centering
-	\begin{tabular}{c|cccc||cccccc}
-		&\multicolumn{4}{c}{Rank}&&\multicolumn{4}{c}{Rank}\\\hline
-		Outcome& 1 & 2 & 3&4 &Outcome& 1 & 2 & 3&4  \\\hline
-		$O_1$& A&B&C&D&$O_{13}$ &C&A&B&D    \\
-		$O_2$& A &B&D&C&$O_{14}$&C&A&D&B     \\
-		$O_3$& A&C&B&D&$O_{15}$ &C&B&A&D    \\
-		$O_4$& A&C&D&B&$O_{16}$ &C&B&D&A    \\
-		$O_5$& A &D&B&C&$O_{17}$ &C&D&A&B    \\
-		$O_6$& A&D&C&B&$O_{18}$ &C&D&B&A      \\
-		$O_7$& B&A&C&D&$O_{19}$   &D&A&B&C     \\
-		$O_8$& B &A&D&C  &$O_{20}$ &D&A&C&B      \\
-		$O_9$& B&C&A&D  &$O_{21}$   &D&B&A&C    \\
-		$O_{10}$& B&C&D&A  &$O_{22}$ &D&B&C&A   \\
-		$O_{11}$& B&D&A&C &$O_{23}$  &D&C&A&B   \\
-		$O_{12}$& B&D&C&A &$O_{24}$   &D&C&B&A   \\
+	\begin{tabular}{c|cccc}
+		PROFILE&\multicolumn{4}[PAL RANKINGS}]\\
+		RANKING&(1,1)&(1,0)&(2,1),&(2,0)\\hline
+		ABCD& 1.5&3.5&2&3\\
+		ACBD& 2&3&1.5&3.5\\
+		BADC&1.5&3.5&3&2 \\
+		CBAD& 2.5&2.5&2&3 \\\hline
+		$\mu,\sigma}$&(1.875,.4787)&(3.375,.25)&(2.125,.6292)&(2.875,.6292)\\
 	\end{tabular}
-	\caption{The 24 possible tournament outcomes or rankings of the profiles A,B,C, and D. Note the lexicographic ordering of these rankings.}
-	\label{Tab3}
-\end{table}
-
-
-
-
-Each of the $n=4$ sample respondents will have a tournament outcome, which we can compile into an \emph{Individual Ranking Table (IRT)}, an example of which is shown in Table  \ref{Tab1}.
-\begin{table}[!htpb]
-\centering
-\scriptsize
-\begin{tabular}{c|cccc|c}
-&\multicolumn{4}{c}{Rank}&\\
-Respondent& 1 & 2 & 3 & 4&Ranking\\\hline
-1& A&B&C&D&$O_1$\\
-2& A &C&B&D&$O_3$ \\
-3& B &C&A&D& $O_9$ \\
-4& A &C&B&D&$O_3$ \\
-\end{tabular}
-\caption{Profile rankings for a sample of 4 respondents.}
-\label{Tab1}
-\end{table}
-{\flushleft From} this data, it is easy to compute the \emph{Sample Profile Ranking (SPR)} table which indicates how many respondents assigned a particular rank to each profile (Table \ref{SPR}).
-
-\begin{table}[!htpb]
-\scriptsize
-\centering
-\begin{tabular}{c|cccc|c}
-&\multicolumn{4}{c}{Rank}&\\
-Profile& 1 & 2 & 3&4&SPR\\\hline
-A& 3&0&1&0&1.5\\
-B& 1 &1&2&0 &2.25\\
-C& 0 &3&1&0&2.25 \\
-D& 0 &0&0&4&4.0 \\
-\end{tabular}
-\caption{Sample Profile Ranking (SPR) Table. The $i,j$ entry of the 4x4 matrix forming the body of the table shows the number of respondents who assigned to  the profile in the margin of row $i$, the rank shown by the header in column $j$. The sample profile ranking (SPR) is the arithmetic average of the sample respondent rankings.}
-\label{SPR}
-\end{table}
-
-Given any profile $X$ and a sample of size $n=4$, the \emph{sample profile ranking (SPR)} $\rho_n(X)=\rho_4(X)$ is obtained as an arithmetic average of the $n=4$ respondents.  For example, for A=11, $\rho_4(A)=[3(1)+1(3)]/4=1.5$, and for C=10 it is $\rho_4(C) = [3(2)+1(3)]/4=2.25$.
-In this case, based on the sample, profile A=11 is ranked first, profiles B=10 and C=01 are tied for second, and profile D=00 comes in fourth.
-
-In a similar way, we can use our sample to obtain rankings for each individual attribute level as shown in Table \ref{SAL}.
-
-\begin{table}[!htpb]
-	\scriptsize
-	\centering
-	\begin{tabular}{cc|cccc|c}
-		&&\multicolumn{4}{c}{Rank}&\\
-		Attribute& Level& 1 & 2 & 3&4&SALR\\\hline
-		1& 1 & 4&1&3&0&1.875\\
-		1& 0 & 0 &3&1&4 &3.125\\
-		2& 1& 3 &3&2&0&1.875 \\
-		2& 0 & 1 &1&2&4&3.125 \\
-	\end{tabular}
-	\caption{Sample Attribute Level Ranking (SAL) Table. }
-	\label{SAL}
+	\caption{Example of sample ($n=4$) PAL rankings ($\mu$-mean, $\sigma$=standard deviation) of profiles A=11,B=10,C=01, and D=00.}
+	\label{PAL1}
 \end{table}
 
 The main questions we will develop in the sequel are: 

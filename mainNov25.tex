@@ -74,7 +74,7 @@
  \vspace{.7in}
 
  \begin{abstract}
-To analyze Adaptive Choice-Based Conjoint (ACBC) survey samples from small populations, a new methodology called profile ranking based ACBC (PR-ACBC) is proposed as a complement to utility based  ACBC. PR-ACBC offers a form of validation especially useful for small survey data with high variances in partworth utilities. Without requiring knowledge of partworth utilities, PR-ACBC deduces from sample data the maximum likelihood population ranking for known population sizes using a multivariate hypergeometric distribution, and for unknown population sizes using the Lagrange multiplier based optimization. A population ranking interval can easily be computed  for each profile as an interval guaranteed to include  the unknown population profile ranking.Similarly, individual attribute level rankings from the sample can be used to form attribute level intervals which must contain the unknown population attribute level rankings.  The sample attribute level rankings are used  for  multidimensional scaling (MDS) giving a two-dimensional visual representation showing similarities in  attribute levels and respondents.  Attribute level rankings are then compared with partworth utilities with respect to accuracy of choice task predictions and ranking of attribute importances. Finally, PR-ACBC methodology is applied to a recent survey administered to  a small population of faith-based and non-faith based disaster relief organizations belonging to the National Voluntary Organizations Active in Disaster (VOAD).
+To analyze Adaptive Choice-Based Conjoint (ACBC) survey samples from small populations, a new methodology called profile ranking based ACBC (PR-ACBC) is proposed as a complement to utility based  ACBC. PR-ACBC offers a form of validation especially useful for small survey data with high variances in partworth utilities. Without requiring knowledge of partworth utilities, PR-ACBC begins with a simple computation using choice task data to obtain both individual and sample mean profile attribute level (PAL) rankings. the Maximum likelihood estimation of profile rankings for both known population size $N$ (multivariate hypergeometric distribution) and unkown $N$ (Lagrange multiplier optimization) is then used to obtain point estimates of population PALs. A PAL ranking interval can easily be computed  for each level as an interval guaranteed to include  each PAL for any specified vale of $N$. The sample PAL rankings are also used  for  multidimensional scaling (MDS) which offers a two-dimensional visual representation of similarities/dissimilarities in respondents or PALs.  Attribute level rankings are then compared with partworth utilities with respect to accuracy of choice task predictions and ranking of attribute importances. Finally, PR-ACBC methodology is applied to a recent survey administered to  a small population of disaster relief organizations belonging to the National Voluntary Organizations Active in Disaster (VOAD).
 
 \end{abstract}
 
@@ -116,105 +116,56 @@ In this section we introduce PR-ACBC methodology using a simple example.
 
 \subsection{Simple Example}
 
-Consider a generic ACBC survey with just 2 attributes each having 2 levels. We designate the 4 possible profiles $A=11, B=10, C=01, D=00$, where $X=x_1x_2$ designates that profile $X$ has level $x_1$ for the first attribute and level $x_2$ for the second attribute. Suppose we have obtained by anonymous survey choice tournament results  for $n=4$ respondents from a population of size $N>4$.  A sample tournament outcome is shown in Figure \ref{SimpleTourn}
+Consider a generic ``toy'' ACBC survey with just 2 attributes each having 2 levels. We designate the 4 possible profiles $A=11, B=10, C=01, D=00$, where $X=x_1x_2$ designates that profile $X$ has level $x_1$ for the first attribute and level $x_2$ for the second attribute. Suppose we have obtained by anonymous survey choice tournament results  for $n=4$ respondents from a population of size $N>4$.  A sample tournament outcome is shown in Figure \ref{SimpleTourn}
 \begin{figure}[!htpb]
 \centering
 \includegraphics[width=1.75in, height=1.5in]{SimpleTourn.png}
-\caption{One possible tournament outcome ranks profile A=11 first, B=01 second, C=10 is ranked third and D=00 fourth.  }
+\caption{A respondent whose tournament data ranks profile A=11 first, C=01 second, B=10 is ranked third and D=00 fourth.  }
 \label{SimpleTourn}
 \end{figure}
 
-{\flushleft For} this respondent, profile A=11 is ranked 1 (tournament winner), profile B=10 is ranked 2 (runner-up), profiles C=01 third and D=00 ranked 4. The rationale for the latter 2 rankings is that assuming transitivity in match outcomes, the highest C could be ranked if all profiles were paired is 2, while D could only be ranked as high as 3. Note that there are essentially 24 different possible tournament outcomes, each specifying a ranking or permutation of A,B, C and D.(Table \ref{Tab3}):
+{\flushleft This} respondent profile ranking is denoted ACBD, meaning profile A=11 is ranked 1 (tournament winner), profile C=01 is ranked 2 (runner-up), profile B=10 third, and D=00 ranked 4th. The rationale for the latter 2 rankings is that assuming transitivity in match outcomes, the highest B could be ranked if all profiles were paired is 2, while D could only be ranked as high as 3. 
+
+In our toy survey with just 4 possible profiles, there are already 4!=24 possible profile rankings. In the next section we consider an actual survey of disaster relief organizations (DROs) with 4 attributes containing 3 levels each, administered to a population of roughly $N=50$ faith based disaster relief organizations. This survey  has 81 profiles and 81!=5 797 126 020 747 367 985 879 734 231 578 109 105 412 357 244 731 625 958 745 865 049 716 390
+ 179 693 892 056 256 184 534 249 745 940 480 000 000 000 000 000 000 profile rankings,  For a sample size of $n=13$, and a choice task stage  which provides each respondent's ranking of 16 profiles, a meaningful ranking of  all the profiles is evidently impossible. As a result, our approach to ranking profiles, one more akin to using partworth utilities to determine profile choices, is to rank individual attribute levels rather than profiles as a whole. 
+
+Our toy survey has just four profile levels which we denote $(x_1,x_2)$ where $x_1$ is the attribute number (1 or 2) and $x_2$ the level number (0 or 1). Note that each level appears in exactly two profiles. For each attribute level, we compute a respondent's profile attribute level (PAL) ranking as the average of the two profile rankings in which the level appears.  For example since $(1,0)$ appears in profiles $C$ and $D$, if a respondent's profile ranking is ACBD, then the $(1,0)$ PAL ranking is (2+4)/2=3. (See Table \ref{PAL1})
+
 
 \begin{table}[!htpb]
-	\scriptsize
+	
 	\centering
-	\begin{tabular}{c|cccc||cccccc}
-		&\multicolumn{4}{c}{Rank}&&\multicolumn{4}{c}{Rank}\\\hline
-		Outcome& 1 & 2 & 3&4 &Outcome& 1 & 2 & 3&4  \\\hline
-		$O_1$& A&B&C&D&$O_{13}$ &C&A&B&D    \\
-		$O_2$& A &B&D&C&$O_{14}$&C&A&D&B     \\
-		$O_3$& A&C&B&D&$O_{15}$ &C&B&A&D    \\
-		$O_4$& A&C&D&B&$O_{16}$ &C&B&D&A    \\
-		$O_5$& A &D&B&C&$O_{17}$ &C&D&A&B    \\
-		$O_6$& A&D&C&B&$O_{18}$ &C&D&B&A      \\
-		$O_7$& B&A&C&D&$O_{19}$   &D&A&B&C     \\
-		$O_8$& B &A&D&C  &$O_{20}$ &D&A&C&B      \\
-		$O_9$& B&C&A&D  &$O_{21}$   &D&B&A&C    \\
-		$O_{10}$& B&C&D&A  &$O_{22}$ &D&B&C&A   \\
-		$O_{11}$& B&D&A&C &$O_{23}$  &D&C&A&B   \\
-		$O_{12}$& B&D&C&A &$O_{24}$   &D&C&B&A   \\
+	\begin{tabular}{c|cccc}
+		Profile&\multicolumn{4}{c}{PAL Ranking}\\
+		Ranking&(1,1)&(1,0)&(2,1),&(2,0)\\\hline
+		ABCD& 1.5&3.5&2&3\\
+		ACBD& 2&3&1.5&3.5\\
+		BADC&1.5&3.5&3&2 \\
+		CBAD& 2.5&2.5&2&3 \\\hline
+		$m$&1.875&3.375&2.125&2.875\\
+		$s$ &.4787&.25&.6292&.6292\\
 	\end{tabular}
-	\caption{The 24 possible tournament outcomes or rankings of the profiles A,B,C, and D. Note the lexicographic ordering of these rankings.}
-	\label{Tab3}
+	\caption{Toy survey sample PAL rankings ($n=4$, $m$=mean, $s$=standard deviation, profiles A=11,B=10,C=01, and D=00.)}
+	\label{PAL1}
 \end{table}
 
 
 
+In our DRO survey, there are  a total of 12 PALs $(x_1,x_2)$ with $x_1\in\{1,2,3,4\}$ and $x_2\in\{1,2,3\}$. Each PAL occurs in 27 out of the 81 profiles and has roughly a 99.85\% chance of appearing in a  in a single elimination round of 16 tournament (and hence have a ranking between 1 and 16). PALs not appearing in a tournament are assigned a ranking of 24.5 (the average of rankings 17 through 32 which would be assigned to the first round losers had one earlier round been included in the tournament.)  In short, PAL rankings are far more meaningful than profile rankings.
 
-Each of the $n=4$ sample respondents will have a tournament outcome, which we can compile into an \emph{Individual Ranking Table (IRT)}, an example of which is shown in Table  \ref{Tab1}.
-\begin{table}[!htpb]
-\centering
-\scriptsize
-\begin{tabular}{c|cccc|c}
-&\multicolumn{4}{c}{Rank}&\\
-Respondent& 1 & 2 & 3 & 4&Ranking\\\hline
-1& A&B&C&D&$O_1$\\
-2& A &C&B&D&$O_3$ \\
-3& B &C&A&D& $O_9$ \\
-4& A &C&B&D&$O_3$ \\
-\end{tabular}
-\caption{Profile rankings for a sample of 4 respondents.}
-\label{Tab1}
-\end{table}
-{\flushleft From} this data, it is easy to compute the \emph{Sample Profile Ranking (SPR)} table which indicates how many respondents assigned a particular rank to each profile (Table \ref{SPR}).
 
-\begin{table}[!htpb]
-\scriptsize
-\centering
-\begin{tabular}{c|cccc|c}
-&\multicolumn{4}{c}{Rank}&\\
-Profile& 1 & 2 & 3&4&SPR\\\hline
-A& 3&0&1&0&1.5\\
-B& 1 &1&2&0 &2.25\\
-C& 0 &3&1&0&2.25 \\
-D& 0 &0&0&4&4.0 \\
-\end{tabular}
-\caption{Sample Profile Ranking (SPR) Table. The $i,j$ entry of the 4x4 matrix forming the body of the table shows the number of respondents who assigned to  the profile in the margin of row $i$, the rank shown by the header in column $j$. The sample profile ranking (SPR) is the arithmetic average of the sample respondent rankings.}
-\label{SPR}
-\end{table}
-
-Given any profile $X$ and a sample of size $n=4$, the \emph{sample profile ranking (SPR)} $\rho_n(X)=\rho_4(X)$ is obtained as an arithmetic average of the $n=4$ respondents.  For example, for A=11, $\rho_4(A)=[3(1)+1(3)]/4=1.5$, and for C=10 it is $\rho_4(C) = [3(2)+1(3)]/4=2.25$.
-In this case, based on the sample, profile A=11 is ranked first, profiles B=10 and C=01 are tied for second, and profile D=00 comes in fourth.
-
-In a similar way, we can use our sample to obtain rankings for each individual attribute level as shown in Table \ref{SAL}.
-
-\begin{table}[!htpb]
-	\scriptsize
-	\centering
-	\begin{tabular}{cc|cccc|c}
-		&&\multicolumn{4}{c}{Rank}&\\
-		Attribute& Level& 1 & 2 & 3&4&SALR\\\hline
-		1& 1 & 4&1&3&0&1.875\\
-		1& 0 & 0 &3&1&4 &3.125\\
-		2& 1& 3 &3&2&0&1.875 \\
-		2& 0 & 1 &1&2&4&3.125 \\
-	\end{tabular}
-	\caption{Sample Attribute Level Ranking (SAL) Table. }
-	\label{SAL}
-\end{table}
 
 The main questions we will develop in the sequel are: 
 \begin{itemize}
-\item POPULATION RANKING INFERENCE \emph{what can we infer from the SRT and SAL tables about the population profile ranking  (PPR) and population attribute level (PAL) tables?}, the latter two meaning the tables for all population respondents; and
-\item CHOICE TASK PREDICTION AND ATTRIBUTE IMPORTANCE \emph{for the purpose of choice task predictions and attribute importance rankings, how does information obtainable from the SRT and SAL compare with that obtainable from partworth utilities?}
+\item POPULATION INFERENCES: \emph{what can we infer from sample PAL rankings about the population PAL rankings?}; and
+\item APPLICATION TO REAL SURVEYS:  \emph{How well do PAL rankings predict  choice-tasks and attribute importances in the DRO survey?}
 \end{itemize}
 
 \subsection{A Fundamental Observation}
-In this section we show that  least squares multiple  regression (LSRM) will not in general give exact sample profile rankings. In other words, part-worth utilities can only approximate sample rankings.
+In this section we show that  least squares multiple  regression (LSRM) will not in general give exact sample profile rankings and their corresponding PAL rankings. In other words, part-worth utilities can only approximate sample PAL rankings.
 
 
-Least squares multiple linear regression (LSRM) can be used to predict sample profile rankings based on individual sample outcomes as we will now explain using our simple 2 attribute, 2 level survey and generic sample data for 4 respondents. Table \ref{Tab7} gives the dataset \{($U_i,V_i,Y_i$)\} ($i = 1,...,16$) where
+Least squares multiple linear regression (LSRM) can be used to predict sample PAL rankings as we will now explain using our toy survey.  Let $U$ denote the level of attribute 1, $V$ the level of attribute 2, and $Y$ the ranking of a profilw with levels $U$ and $V$. Table \ref{Tab7} gives the dataset \{($U_i,V_i,Y_i$)\} ($i = 1,...,16$) where
 
 \begin{eqnarray*}
 	U_i&=& 1 \textup{ if attribute 1 has level 1, and 0 if it has level 2}\\
@@ -225,15 +176,14 @@ Least squares multiple linear regression (LSRM) can be used to predict sample pr
 \begin{table}[!htpb]
 	\centering
 	\small
-	\begin{tabular}{cc|ccccc}
-		\multicolumn{2}{c}{} &\multicolumn{4}{c}{Output Ranking Data}\\\hline
+	\begin{tabular}{cc|ccccc}	\hline
 		$U$ & $V$ & Respondent 1&  Respondent 2& Respondent 3& Respondent 4\\  \hline
 		1 &1&$Y_1$&$Y_2$&$Y_3$&$Y_4$\\
 		1 &0&$Y_5$&$Y_6$&$Y_7$&$Y_8$ \\
 		0 &1&$Y_9$&$Y_{10}$&$Y_{11}$&$Y_{12}$ \\
 		0 &0&$Y_{13}$&$Y_{14}$&$Y_{15}$&$Y_{16}$ \\\hline
 	\end{tabular}
-	\caption{{\small Dataset ranking structure by respondents.}}
+	\caption{{\small Sample profile rankings by respondent ($n=4$).}}
 	\label{Tab7}
 \end{table}
 
@@ -241,8 +191,7 @@ Least squares multiple linear regression (LSRM) can be used to predict sample pr
 This dataset has certain properties:
 \begin{itemize}
 	\item
-	Each column consists of a respondent's profile rankings, and hence contains the values $1, 2, 3, 4$ in any order.
-	
+	Each column consists of a respondent's profile rankings and so contains the numbers 1,2,3 and 4.
 	\item
 	Table \ref{Tab7} can also be represented in the form of Table \ref{Tab8}, by which we see that $$\sum U_i = \sum V_i = \sum U_i^2 = \sum V_i^2= 8, $$ and $$ \sum U_iV_i = 4,$$ where the symbol $\sum $ represents $\displaystyle \sum_{n=1}^{16}$.
 \end{itemize}
@@ -380,36 +329,30 @@ $$\bar{Y}_{B} = \frac{Y_5+Y_6+Y_7+Y_8}{4},$$
 $$\bar{Y}_{C} = \frac{Y_9+Y_{10}+Y_{11}+Y_{12}}{4}, \textup{  and}$$
 $$\bar{Y}_{D} = \frac{Y_{13}+Y_{14}+Y_{15}+Y_{16}}{4}.$$
 
-
-{\flushleft We} thus have the following theorem: \emph{The sample profiles' LSMR predicted and actual rankings are the same if and only if the following four equations hold}
-\begin{equation}
-\textup{(profile 11)} :  2\sum U_iY_i + 2\sum V_iY_i - \sum Y_i = 4( Y_1+Y_2+Y_3+Y_4 ),
-\end{equation}
-\label{eq:14}
-\begin{equation}
-\textup{(profile 10)} :  -6 \sum V_iY_i + \sum U_iY_i + \sum Y_i = 4( Y_5+Y_6+Y_7+Y_8 ),
-\end{equation}
-\label{eq:15}
-\begin{equation}
-\textup{(profile 01)} : -2\sum U_iY_i + 2\sum V_iY_i + \sum Y_i = 4(Y_9+Y_{10}+Y_{11}+Y_{12} ), \textup{and}
-\end{equation}
-\label{eq:16}
-\begin{equation}
-\textup{(profile 00)} : -2\sum U_iY_i - 2\sum V_iY_i +3 \sum Y_i = 4(Y_{13}+Y_{14}+Y_{15}+Y_{16} ).
-\end{equation}
-\label{eq:17}
-
-{\flushleft Furthermore}, by adding these equations, we obtain a corollary:
-\emph{The following is a necessary condition for the LSMR predicted sample profile rankings to equal the sample profile rankings:}
-\begin{equation}
-\sum U_iY_i = \sum V_iY_i.
-\label{cor}
-\end{equation}
+Let $\bar{f}(X)$ denote the average sample ranking of PAL $X$. For example $f(U=1)=\frac{\bar{Y}_A+\bar{Y}_B}{2}=\frac{\sum_{i=1}^8 Y_i}{8}$.  On the other hand, the LSMR prediction for this PAL's sample ranking is $\hat{f}(X)=(\hat{Y}_A+\hat{Y}_B)/2=c_0+c_1+\frac{c_2}{2}.$ The relationship between the sample PAL rankings and LSMR predicted PAL rankings is shown in Table \ref{LSMR}).
 
 
-Returning to our small sample (Table \ref{Tab1}), we see that the average profile rankings and LSRM predicted profile rankings are different for each of the four profiles (Table \ref{Tab9}). In this case, the regression coefficients are
-$c_0=3.75$, $c_1=-1.25$, $c_2=-1.25$.  The equality (\ref{cor}) in the corollary does not hold.
 
+\begin{table}[!htpb]
+	\centering
+	\scriptsize
+	\begin{tabular}{c|c|c}
+		PAL & $\bar{f}(X)$ & $ \hat{f}(X)$ \\ \hline 
+		& & \\
+		U=1 & $\frac{\bar{Y}_A+\bar{Y}_B}{2}$  &$c_0+c_1+\frac{c_2}{2}$\\
+			& & \\
+		U=0 & $ \frac{\bar{Y}_C+\bar{Y}_D}{2}$  &$c_0+\frac{c_2}{2}$ \\
+			& & \\
+		V=1 &$\frac{\bar{Y}_A+\bar{Y}_C}{2}$  &$c_0+c_2+\frac{c_1}{2}$ \\
+			& & \\
+		V=0 & $\frac{\bar{Y}_B+\bar{Y}_D}{2}$  &$c_0+\frac{c_1}{2}$  \\
+		& & \\\hline
+	\end{tabular}
+	\caption{{\small Predicted PAL rankings using LSMR coefficients.}}
+	\label{LSMR}
+\end{table}
+
+Table \ref{Tab9} shows that the average sample profile rankings and LSRM predicted profile rankings are different for each of the four profiles. In this case, the regression coefficients are $c_0=3.75$, $c_1=-1.25$, $c_2=-1.25$. 
 
 \begin{table}[!htpb]
 	\centering
@@ -422,29 +365,47 @@ $c_0=3.75$, $c_1=-1.25$, $c_2=-1.25$.  The equality (\ref{cor}) in the corollary
 		0 &1&3&2&2&2&2.25 &3.75-1.25(0)-1.25(1)=2.5&.25 \\
 		0 &0&4&4&4&4&4 &3.75-1.25(0)-1.25(0)=3.75&.25\\\hline
 	\end{tabular}
-	\caption{{\small Predicted rankings for the sample outcomes in Table \ref{Tab1}.}}
+	\caption{{\small Predicted rankings for the sample outcomes in Table \ref{PAL1}.}}
 	\label{Tab9}
 \end{table}
 
-
-
-The conditions  (12)-(15) for whether or not the LSMR  profile ranking predictions are error-free may be understood geometrically by considering points in an $x_1x_2x_3$ coordinate system in which the $x_1x_2$ coordinates represent the profile and the $x_3$ coordinate the ranking. For our simple generic survey,  if the four points representing the sample profile rankings are co-planar, there is no error; otherwise, the LSMR predicted profile rankings will have a residual error (Figure  \ref{sec4fig}).  Such a geometric interpretation  is not possible for surveys involving more than 2 attributes, in which case standard LSMR residual analysis indicates the error in sample  profile rankings using regression coefficients.
+Geometrically, if the four points representing the sample profile rankings are co-planar, there is no error; otherwise, the LSMR predicted profile rankings will have a residual error (Figure  \ref{sec4fig}).  Such a geometric interpretation  is not possible for surveys involving more than 2 attributes, in which case standard LSMR residual analysis indicates the error in sample  profile rankings using regression coefficients.
 
 
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=2in,height=2in]{sec4fig.png}
-	\caption{{\small The LSRM predicted sample profile rankings ($\hat{Y}=3.75-1.25U-1.25V$ (square vertices) have residual errors as the actual sample rankings (dots) do not belong to the plane of regression. }}	
+	\caption{{\small The LSRM predicted sample profile rankings ($\hat{Y}=3.75-1.25U-1.25V$ (square vertices) have residual errors as the actual sample profile rankings (dots) do not belong to the plane of regression. }}	
 	\label{sec4fig}
 \end{figure}
 
+\newpage
+ LSMR will not in general predict exact PAL rankings, as the latter   are computed directly from the sample profile rankings (Table \ref{LSMR2}).
 
-\subsection{Maximum Likelihood Estimation of the PRT}
-We will proceed to develop PR-ACBC methodology without assuming any knowledge of partworth utilitites.  
+\begin{table}[!htpb]
+	\centering
+	\scriptsize
+	\begin{tabular}{c|cccc|c|c|c}
+		&\multicolumn{4}{c|}{Respondent PAL Ranking}&&$c_0=3.75,c_1=-1.25,c_2=-1.25$&\\\hline
+		PAL & R 1&  R 2& R 3& R 4 &Sample PAL Rank&Predicted Sample Rank&$|error|$ \\  \hline
+		$U=1$ &1.5&2&2.5&2&1.875&$c_0+c_1+\frac{c_2}{2}=1.875$&0\\
+		$U=0$&3.5&3&2.5&3&3&$c_0+\frac{c_2}{2}$=3.125&.125 \\
+		$V=1$&2&1.5&1.5&1.5&1.625 &$c_0+c_2+\frac{c_1}{2}=1.875$&.2 \\
+		$V=0$&3&3.5&3.5&3.375&2.875 &$c_0+\frac{c_1}{2}=3.125$&.25\\\hline
+	\end{tabular}
+	\caption{{\small Actual vrs. LSMR predicted PAL rankings for the sample outcomes in Table \ref{PAL1}.}}
+	\label{LSMR2}
+\end{table}
+
+
+
+
+\subsection{Maximum Likelihood Estimation of PAL-ranking Intervals}
+We will proceed to develop PR-ACBC methodology without assuming any knowledge of partworth utilitities.  Since sample PAL rankings are easily computed from sample profile rankings, we discuss how to obtain the population profile rankings most likely to have given the observed sample profile rankings.
 \subsubsection{Known Population Size}
-Let us assume the population has size $N=7$, and that our sample was a random selection of 4 out of these 7. The number $N=7$ is for simplicity of illustrating the relevant conmputations only, and could be any number $N>n=4$.  We will now use a multivariate hypergeometric distribution to obtain the maximum likelihood estimate (MLE) PPR, meaning the population which was must likely to have yielded the observed sample outcomes.  
+Let us assume our population has size $N=7$, and that our sample was a random selection of $n=4$ out of these 7. The number $N=7$ is for simplicity of illustrating the relevant cnmputations only, and could be any number $N>n=4$.  We will now use a multivariate hypergeometric distribution to obtain the maximum likelihood estimate (MLE) population profile rankings, meaning the population which was must likely to have yielded the observed sample profile rankings.  
 
-To begin, we create what we shall call a \emph{factor table} (Table \ref{FT}) 
+Suppose in our sample with $n=4$,  three different profile rankings $O_1,O_2,O_3$ are observed, with ranking $O_2$ ocurring twice in the sample. We create what we shall call a \emph{factor table}, whose $k$ largest factors $f_{ij}=1+(n_i/j)$ are used to determine the MLE population (see Table \ref{FT}) 
 \begin{table}[!htpb]
 	\scriptsize
 	\centering
@@ -454,12 +415,12 @@ To begin, we create what we shall call a \emph{factor table} (Table \ref{FT})
 		+2& $f_{12}=3/2$ & $f_{22}=2$ &$f_{32}=3/2 $&\\
 		+1& $f_{11}=2$  &$f_{21}=3$&$f_{31}=2 $ &\\\hline
 		Number observed in sample:&$n_1=1$& $n_2=2$ & $n_3=1$ & Sample size: $n=4$\\\hline
-		Ranking:&1=$O_1$&2=$O_3$&3=$O_9$
+		Ranking:&1=$O_1$&2=$O_2$&3=$O_3$
 	\end{tabular}
-	\caption{Probability factor table. The $k=3$ largest factors $f_{ij}=1+(n_i/j)$ are used to determine the MLE PRT for a population size $N=n+k=4+3=7$. }
+	\caption{Probability factor table. The $k=3$ largest factors $f_{ij}=1+(n_i/j)$ are used to determine the MLE population with size $N=n+k=4+3=7$. }
 	\label{FT}
 \end{table}
-{\flushleft  Let} $N_j$ denote the number of rankings $O_j$ in the PRT.  The number of factors $a_j$ chosen from column $j$ indicates that a  PRT with $N_j= n_j+a_j$ is a MLE.    In our case, the latter is not unique.  One choice of 3 largest factors is $f_{11}=2, f_{21}=3,f_{22}=2$ so that $a_1=1$, $a_2=2$ and $a_3=0$. A population $Y$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=4$, and $N_3=n_3+a_3=1$ is a MLE. Another choice of 3 largest factors  is $f_{11}=2, f_{21}=3,f_{31}=1$ so that $a_1=1$, $a_2=1$ and $a_3=0$. Population $Z$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=3$, and $N_3=n_3+a_3=2$ is also MLE. We can verify this is so by computing the respective probabilities $p_Y$ and $p_Z$ that our observed sample arises from erspective populations $Y$ and $Z$ :
+{\flushleft  Let} $N_j$ denote the number of rankings $O_j$ in the population.  The number of factors $a_j$ chosen from column $j$ in the factor table indicates that a  population with $N_j= n_j+a_j$ is a MLE.    In our case, the latter is not unique.  One choice of 3 largest factors is $f_{11}=2, f_{21}=3,f_{22}=2$ so that $a_1=1$, $a_2=2$ and $a_3=0$. A population $Y$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=4$, and $N_3=n_3+a_3=1$ is a MLE. Another choice of 3 largest factors  is $f_{11}=2, f_{21}=3,f_{31}=1$ so that $a_1=1$, $a_2=1$ and $a_3=0$. Population $Z$ in which $N_1=n_1+a_1=2$ , $N_2=n_2+a_2=3$, and $N_3=n_3+a_3=2$ is also a MLE. We can verify this is so by computing the respective probabilities $p_Y$ and $p_Z$ that our observed sample arises from respective populations $Y$ and $Z$ :
 
 \begin{equation}
 p_Y=\frac{C(2,1)C(4,2)C(1,1)}{C(7,4)}=\frac{f_{11} \cdot f_{21}f_{22}}{C(7,4)}
@@ -468,7 +429,7 @@ p_Y=\frac{C(2,1)C(4,2)C(1,1)}{C(7,4)}=\frac{f_{11} \cdot f_{21}f_{22}}{C(7,4)}
 \begin{equation}
 p_Z=\frac{C(2,1)C(3,2)C(2,1)}{C(7,4)}=\frac{f_{11}\cdot f_{21}\cdot f_{31}}{C(7,4).}
 \end{equation}
-{\flushleft This} procedure generalizes to any number of rankings $m$ which appear in a sample of sample $n$ ( Oberhofer and Kaufman (1987)). Let $n=\sum_{j=1}^m n_j$ where $n_j$ is the number of ranking $j$ appearing in the sample.  Form the probability factor table with $f_{ij}=1+\frac{n_i}{j}$ ($i=1,...,r$, $j=1,...,m$ and $N=n+r$.)  Choose the $r$ largest factors in the latter table and let $a_j$ be the number of factors chosen in column $j$.  Then a population with a PRT such  $N_j=n_j+a_j$ ($j=1,...,m$) is a MLE. 
+{\flushleft This} procedure generalizes to any number of rankings $m$ which appear in a sample of size $n$ ( Oberhofer and Kaufman (1987)). Let $n=\sum_{j=1}^m n_j$ where $n_j$ is the number of ranking $j$ appearing in the sample.  Form the probability factor table with $f_{ij}=1+\frac{n_i}{j}$ ($i=1,...,r$, $j=1,...,m$ and $N=n+r$.)  Choose the $r$ largest factors in the latter table and let $a_j$ be the number of factors chosen in column $j$.  Then a population with   $N_j=n_j+a_j$ ($j=1,...,m$) is a MLE. 
 \subsubsection{Unknown Population Size}
 
 
@@ -526,11 +487,12 @@ indicate that for a population of size $N$, the expected number $N_k$ of outcome
 
 
 
-\subsection{Population Ranking Intervals}
+\subsection{Profile Ranking Intervals}
 
-Maximum likelihood  provides a point estimate into the population profile rankings, meaning the PRT most likely to have produced the observed sample. In this section, given ranking data for a sample consisting of $n$ survey respondents selected at random from a population with $N> n$ respondents, we will show how to construct for each profile ranking intervals   which are guaranteed to include the population profile rankings.
+Maximum likelihood  provides a point estimates into the population profile rankings and their corresponding PAL rankings.  It is easy to construct intervals guaranteed to include the actual population  profile and attribute level rankings.
 
-Returning to our simple example, in which each profile is ranked 1, 2, 3 or 4, let $\rho_N(X)$ denote the ranking of profile $X$ based on tournament results for $N$ respondents. The following inequality must hold:
+
+First, suppose a profile X in a sample of size $n$ has mean profile ranking $\rho_n(X)$.  It is easy to construct an interval which contains the mean ranking $\rho_N(X)$ for any population size $N>n$:
 
 \begin{equation}
 1+\frac{n}{N}(\rho_n(X)-1)\le \rho_N(X)  \le 4-\frac{n}{N}(4-\rho_n(X))
@@ -543,23 +505,22 @@ Returning to our simple example, in which each profile is ranked 1, 2, 3 or 4, l
 \label{PRI}
 \end{equation}
 
-{\flushleft We} call (\ref{PRI}) the population profile ranking interval (PRI) for profile $X$.  The length of this interval is 
+{\flushleft We} call (\ref{PRI}) a \emph{profile ranking interval} for profile $X$.  The length of this interval is 
   $3\lambda$, where the 3 arises algebraically as the difference between  the extreme rankings 1 and 4.
 
 \begin{figure}[!htpb]
 \centering
 \includegraphics[width=6.5in, height=1.75in]{Confidence_Interval.png}
-\caption{Given a profile $X$ and its sample ranking $\rho_n(X)$, the length of the population profile ranking interval (PRI) is determined by $\lambda=\frac{k-n}{k}$, the proportion of the population who have not taken the survey.}
+\caption{Given a profile $X$ and its sample ranking $\rho_n(X)$, the length of the population profile ranking interval  is determined by $\lambda=\frac{k-n}{k}$, the proportion of the population who have not taken the survey.}
 \label{AL}
 \end{figure}
 
 
 
-The PRI can be used to quantify sample bias. Assume that, out of a total population $N=8$, two respondents have refused to take the survey, four have completed it, and the other two have not yet replied. In this case, the length of the PRI is  $\frac{3(8-4)}{8}=3/2$. If one of the non-respondents is convinced to participate, the interval length is reduced to $\frac{3(8-5)}{8}=\frac{9}{8}$, and if both non-respondents participate, then the interval is further reduced to $\frac{3(8-6)}{8}=\frac{3}{4}$. In other words, the two non-respondents  cause the length of the PRI interval to be twice as large, an important consideration in seeking to elicit survey response.
+The profile ranking interval can be used to quantify sample bias. Assume that, out of a total population $N=8$, two respondents have refused to take the survey, four have completed it, and the other two have not yet replied. In this case, the length of the PRI is  $\frac{3(8-4)}{8}=3/2$. If one of the non-respondents is convinced to participate, the interval length is reduced to $\frac{3(8-5)}{8}=\frac{9}{8}$, and if both non-respondents participate, then the interval is further reduced to $\frac{3(8-6)}{8}=\frac{3}{4}$. In other words, the two non-respondents  cause the length of the PRI interval to be twice as large, an important consideration in seeking to elicit survey response.
 
 
-\subsubsection{Population Attribute Ranking Intervals}
-In a similar way, for any given attribute level, we can form a population \emph{attribute level ranking interval} (ALRI). For example, for our simple survey with 2 attributes each with 2 levels, and for a sample size $n$ if the sample attribute level ranking of level $\chi$ is $r_n(\chi)$, then for a population of size $N>n$, the population ALRI   $r_N(\chi)$ must satisfy 
+In a similar way to constructing profile ranking intervals, if PAL $\chi$ has a sample ranking mean $\rho_n(\chi)$, it is easy to form  a \emph{PAL ranking interval} for any population $N>n$. For our toy survey,
 
 \begin{equation}
 r_n(\chi)+2(N-n)r_n(\chi)\le r_N(\chi) \le r_n(\chi)+8(N-n)r_n(\chi),
@@ -570,13 +531,11 @@ r_n(\chi)+2(N-n)r_n(\chi)\le r_N(\chi) \le r_n(\chi)+8(N-n)r_n(\chi),
 r_n(X)-\lambda(r_n(X)-1)\le r_N(X) \le r_n(X) + \lambda(4-r_n(X)).
 \label{ALRI}
 \end{equation}
-{\flushleft with $\lambda=\frac{N-n}{N}$. Note that (\ref{PRI}) and (\ref{ALRI}) have the same form, so the length of both intervals is $3\lambda$.
+{\flushleft with} $\lambda=\frac{N-n}{N}$. Note that (\ref{PRI}) and (\ref{ALRI}) have the same form, so the length of both intervals is $3\lambda$.
 
 \subsection{Multimensional Scaling}
-One further type of analysis of ranking data is a 2-dimensional geometric representation known as multidimensional scaling (MDS) (Alvo and Yu 2014). 
-Fundamental to MDS is use of a distance measure $d(\mu,\nu)$ in which the more similar (resp. dissimilar) are a pair of rankings $\mu$ and $\nu$, the smaller (resp. larger).  If the objects being rated (in our case survey profiles) are numberd $1,2,....,t$, then a ranking is simply a permutation of the set $S=\{1,2,...,t\}$.  For example, if we number $A=1,B=2,C=3,D=4$,  the ranking BACD may be represented by the permutation $\mu: S\rightarrow S$ given by $\mu(1)=2,\mu(2)=1, \mu(3)=3$ and $\mu(4)=4$. Thus, there are $t!$ rankings of $t$ objects.   
-
- A variety of distance measures have been used for MDS. For example, Hamming distance (from coding theory) is defined as
+One further type of analysis of PAL ranking data is a 2-dimensional geometric representation known as multidimensional scaling (MDS) (Alvo and Yu 2014). 
+Fundamental to MDS is use of a distance measure $d(\mu,\nu)$ in which the more similar (resp. dissimilar) are a pair of rankings $\mu$ and $\nu$, the smaller (resp. larger) is their distance.  A variety of distance measures have been used for MDS, where it is conventional to number the objects being ranked $1,2,...,t$ and represent a ranking as a permutation, $\mu:S\rightarrow S$ where $S=\{1,2,...,t\}$ and $\mu(i)$ is the rank of object $i$. For example, Hamming distance (from coding theory) is defined as
  
  \begin{equation}
  d_H{(\mu,\nu)}=t-\sum_{i=1}^t I(\mu(i)=\nu(i)).
@@ -587,7 +546,7 @@ Fundamental to MDS is use of a distance measure $d(\mu,\nu)$ in which the more s
  Another example is Spearman distance, which is akin to usual Euclidean distance
 
 \begin{equation}
-d_S{()\mu,\nu)}=\frac{1}{2}\sum_{i=1}^t(\mu(i)-\nu(i))^2.
+d_S{(\mu,\nu)}=\frac{1}{2}\sum_{i=1}^t(\mu(i)-\nu(i))^2.
 \end{equation}
 
 {\flushleft Note} that Hamming distance formula satisfies the three required metric properties:
@@ -599,46 +558,55 @@ d_S{()\mu,\nu)}=\frac{1}{2}\sum_{i=1}^t(\mu(i)-\nu(i))^2.
 \end{itemize}
 {\flushleft Spearman distance}, however, only satisfies the first two metric properties (Alvo and Yu ).
 
- For PR-ACBC, we would like our distance measure to detect
-\begin{itemize}
-	\item small subsets of profiles with approximately the same rankings (eg. $mu$ ranks A first and B second, and $\nu$ ranks B first and A second);
-	\item how similar or different are profiles with the same ranking (eg. A=11 and B=10 have the same level for the first attribute, but differ in the second attribute).
-\end{itemize}
+ In applying MDS to PR-ACBC, we let $(i,j)$ denote level $j$ of attribute $i$,  and $f(i,j)$ the average rank of level $(i,j)$ in an individual respondent's profile ranking. For example, for the profile ranking BACD, $f(1,1)=(1+2)/2=1.5$ since B=10 is ranked first and A=11 is ranked second; $f(20)=(2+4)/2=3$ since B=10 is ranked second and $D=00$ is ranked 4th.
 
-{\flushleft To} achieve this, we let $(i,j)$ denote level $j$ of attribute $i$,  and let $f(i,j)$ be the average rank of level $(i,j)$ in a respondent's ranking. For example, for the profile ranking BACD, $f(1,1)=(1+2)/2=1.5$ since B=10 is ranked first and A=11 is ranked second; $f(20)=(2+4)/3$ since B=10 is ranked second and $D=00$ is ranked 4th.
-
- For our survey, each respondent $X$ will have four average profile level rankings $f_X(1,1), f_X(1,0), f_X(2,1), f_X(2,0)$.  Given 2 respondents $X$ and $Y$, we consider the squared Euclidean distance between their rankings defined as
+ For our toy survey, each respondent $X$ will have four average profile level rankings $f_X(1,1), f_X(1,0), f_X(2,1), f_X(2,0)$.  Given 2 respondents $X$ and $Y$, we consider the squared Euclidean distance between their PAL rankings defined as
 \begin{equation}
 d_S(X,Y)=\sum_{i,j} [f_X(i,j)-f_Y(i,j)]^2.
 \label{Spea}
 \end{equation}
 
-{\flushleft Note} that this distance measure can be used for an ACBC survey with any number of attributes and levels.
+{\flushleft This} distance measure can be used for an ACBC survey with any number of attributes and levels.
 
 
-Once a distance measure is defined, a 2-dimensional MDS is such that rankings are represented by points in an xy Cartesian coordinate system, and the Euclidean distance between these points reflects the relative distances between rankings.  
-
-{\bf TASK 1: MAKE AN MDS OF TABLE 1 USING THE SQUARED EUCLIDEAN DISTANCE (\ref{Spea}). IS THIS AKIN TO MAKING AN MDS FROM INTER-CITY DISTANCES? DO THE THREE METRIC PROPERTIES HOLD FOR THIS DISTANCE MEASURE?}      
+Once a distance measure is defined, a 2-dimensional MDS is such that rankings are represented by points in an xy Cartesian coordinate system, and the Euclidean distance between these points reflects the relative distances between rankings.   
+Note that in this MDS, respondents R2 and R4 coincide since they have the same ranking (ACBD).   
 
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=6.5in, height=1.75in]{MDS1.png}
-	\caption{MDS using the distance function defined in (\ref{Spea}) .}
+	\caption{Example of an MDS using the distance function defined in (\ref{Spea}) . In this case the sample profile rankings are ABCD, ACBD (twice), and BCAD}
 	\label{AL}
 \end{figure}
 
 
 
 
-
 \section{ACBC Survey of Humanitarian Disaster Relief Organizations}
 
-PR-based ACBC methodology for analyzing small populations has many possible applications. One application involves  a study of a small population ($N\approx 50$) of international, Christian faith-based disaster relief organizations headquartered in the U.S. as well as their non faith-based counterparts, will all organizations belonging to the National VOAD.
+PR-based ACBC methodology is designed to analyze small populations and has many possible applications. One application involves  a study of a small population ($N=61$) of international  disaster relief organizations headquartered in the U.S. or Canada as shown in Table \ref{ORGS}.
 
 
-
-
-{\bf TASK 2: MAKE A TABLE OF THE N-VOAD ORGANIZATIONS CONTACTED FOR THE SURVEY} 
+\begin{table}[!htpb]
+	\scriptsize
+	\centering
+	\begin{tabular}{c|c}\hline
+		\multicolumn{2}{c}{Survey Population: International Disaster Relief Organizations Headuarted in the US/Canada}\\\hline
+		Faith-based (Christian)($N_1=49$) & \multicolumn{1}{m{2.75in}}{Adventist Community Services, Adventist Development and Relief Agency,	AMG international,	Baptist World Aid, Billy Graham Evangelistic Association (rapid response team), Blessings international, Brethren Disaster Ministries,	Catholic Charities USA, Catholic Medical Mission Board,	Church World Service, Christian Disaster Response,
+			Christian Aid Ministries, Convoy of Hope, Cooperative Baptist Fellowship, Covenant World Relief,
+			Episcopal relief and Development, Food for the Hungry, Food for the Poor, Habitat for Humanity,	Hopeforce International,
+			International Aid, Lutheran Disaster Response, Lutheran World Relief, MAP international, MedAir,
+			Medical Teams International, Mennonite Central Committee, Mission Aviation Fellowship, Missionary expeditors,
+			The National Baptist Convention - Office of Disaster Management, Nazarene Compassionate Ministries,	Operation Blessing International,
+			Operation Safe, Presbytarian Church in America- Mission to North America, Presbytarian Disaster Assistance,
+			Reach Global, S. Baptist N. Amer. Mission Board, Salvation Army World Service Organization, 	Samaritan's Purse,
+			Service International, SOS Children --not disaster relief, Tearfund USA, United Church of Christ Disaster Ministries,
+			United Methodist Committee on Relief (UMCOR), Water Mission, World Concern,	World Relief, World Renew, World Vision	}\\\hline
+		Non faith-based 	($N_2=12$)&	\multicolumn{1}{m{2.75in}}{ All Hands and Hearts,Americares, Direct Relief, Headwaters Relief Organization,	Heart to Heart, Mercy Corps, Partnership with Native Americans, 	Save the Children, 	ShelterBox USA, 	SBP USA,	Team Rubicon.}\\\hline
+	\end{tabular}
+	\caption{Small populations comprising an ACBC disaster relief organization (DRO) survey.}
+	\label{ORGS}
+\end{table}
 
 In disaster relief, effectiveness of a response may depend on the quality of collaboration between organizations with a broad diversity of religious and ideological perspectives. For effective coordination of relief, it is important that humanitarian organizations understand the unique traits and characteristics that shape their disaster response decisions. Through comparison of these factors, it is possible to design optimal partnerships and joint endeavors between organizations that may fulfill distinct, yet complimentary, humanitarian roles. Our research focuses on a few key attributes affecting our population group's decision whether or not to respond to an international humanitarian disaster.
 

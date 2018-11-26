@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -44,7 +44,7 @@
      id="namedview817"
      showgrid="false"
      inkscape:zoom="0.71950134"
-     inkscape:cx="397"
+     inkscape:cx="168.36943"
      inkscape:cy="561.5"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
@@ -59,7 +59,7 @@
        sodipodi:role="line"
        id="tspan853"
        x="191.7995"
-       y="603.8399"></tspan><tspan
+       y="603.8399" /><tspan
        sodipodi:role="line"
        x="191.7995"
        y="653.8399"
@@ -84,7 +84,7 @@
          id="flowPara845">                    11</flowPara><flowPara
          id="flowPara867" /><flowPara
          id="flowPara847">01</flowPara><flowPara
-         id="flowPara861">          10</flowPara><flowPara
+         id="flowPara861">          01</flowPara><flowPara
          id="flowPara849">00</flowPara></flowRoot>    <path
        inkscape:connector-curvature="0"
        id="path869"
@@ -159,5 +159,5 @@
            height="111.18812"
            width="72.272278"
            id="rect924-9-6" /></flowRegion><flowPara
-         id="flowPara926-9-0">(3)</flowPara></flowRoot>  </g>
+         id="flowPara926-9-0">(4)</flowPara></flowRoot>  </g>
 </svg>
