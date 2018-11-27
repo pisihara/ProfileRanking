@@ -6,8 +6,8 @@ for h=1:n
     org(h,1)=respondent;
 end
 %% Read in Organized Data
-Profiles=xlsread('FBOOrganized.xlsx','Overall','A2:D82');
-ProfileRankings=xlsread('FBOOrganized.xlsx','Overall','G2:K82')
+Profiles=xlsread('NonFBOOrganized.xlsx','Overall','A2:D82');
+ProfileRankings=xlsread('NonFBOOrganized.xlsx','Overall','G2:K82')
 %% Compute PAL Rankings by each organization
 for h=1:n
 for i=1:4

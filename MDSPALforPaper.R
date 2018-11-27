@@ -1,5 +1,4 @@
-# Classical MDS
-
+# Classical MDS of ACBC Disaster Relief Organization Survey 2018
 levels <- c('F11','F12','F13','F21','F22','F23','F31','F32','F33','F41','F42','F43','N11','N12','N13','N21','N22','N23','N31','N32','N33','N41','N42','N43')
 respondents <- c('FBO1','FBO2','FBO3','FBO4','FBO5','NGO1','NGO2','NGO3','NGO4','NGO5')
 FBO1 <- c(20.2,18.6,22.7,20.8,18.2,22.5,  21.2,17.9,22.4,21.5,18.4,21.6)
@@ -7,7 +6,6 @@ FBO2 <- c(21.2,21.5,18.8,21.3,21.4,18.8,  17.8,21.5,22.2,22.1,17.1,22.3)
 FBO3 <-c(21.1,18.1,22.5,20.3,18.5,22.8,   20.8,18.7,22.1,21.8,21.9,17.9)
 FBO4 <- c(20.6,17.7,20.3,20.6,18.1,20.1,  21.2,17.8,20.7,21.6,15.6,21.6)
 FBO5 <- c(20.3,20.4,17.8,20.1,17.6,20.7,  17.3,20.8,20.4,20.3,13.0,20.2)
-
 NGO1 <-c(20.8,21.5,19.2,21.7, 18.7,21.0,   17.3,21.6,22.6,22.4,18.2,21.0)
 NGO2 <-c(20.3,22,20.0,18.4,   21.1,22.8,   18.8,20.9,22.6,21.3,19.4,21.7)
 NGO3 <-c(18.1,21.6,21.8,19.5, 20.3,21.7,   17.2,22.5,21.8,20.3,19.2,21.9)
@@ -15,21 +13,9 @@ NGO4 <-c(19.6,20.3,21.4,18.0, 21.3,22.2,   21.2,19.2,21.1,22.1,17.9,21.6)
 NGO5 <- c(20.6,21.5,19.4,21.2,21.4,18.8,   16.6,22.3,22.7,18.4,21.6,21.4)
 Respondent.data <- data.frame(FBO1,FBO2,FBO3,FBO4,FBO5,NGO1,NGO2,NGO3,NGO4,NGO5)
 mds1 <- cmdscale(dist(Respondent.data))
-rot1<-matrix(1:4,nrow=2, ncol=2)
-theta1=0
-rot1[1,1]<-cos(theta1)
-rot1[1,2]<-sin(theta1)
-rot1[2,1]<- sin(theta1)
-rot1[2,2]<- cos(theta1)
-ref1<-matrix(1:4,nrow=2, ncol=2)
-ref1[1,1]<-  1
-ref1[1,2]<-  0
-ref1[2,1]<- 0
-ref1[2,2]<- 1
-mds1a <- t(rot1 %*% t(mds1))
 par(mai=c(.75,.75,.75,.75))
-plot(mds1a, type = 'n', axes = FALSE, xlab = '', ylab = '')
-text(mds1a[, 1], mds1a[, 2], respondents)
+plot(mds1, type = 'n', axes = FALSE, xlab = '', ylab = '')
+text(mds1[, 1], mds1a[, 2], respondents)
 par(new=T)
 fL11 <-c(20.2,21.2,21.1,20.6,20.3)
 fL12 <-c(18.6,21.5,18.1,17.7,20.4)
@@ -55,21 +41,8 @@ nL33 <-c(22.6,22.6,21.8,21.1,22.7)
 nL41 <-c(22.4,21.3,20.3,22.1,18.4)
 nL42 <- c(18.2, 19.4, 19.2, 17.9, 21.6)
 nL43 <- c(21.0,21.7,21.9,21.6,21.4)
-
 Level.data <- data.frame(fL11,fL12,fL13,fL21,fL22,fL23,fL31,fL32,fL33,fL41,fL42,fL43,nL11,nL12,nL13,nL21,nL22,nL23,nL31,nL32,nL33,nL41,nL42,nL43)
 mds2 <- cmdscale(dist(Level.data))
-rot2<-matrix(1:4,nrow=2, ncol=2)
-theta2=1
-rot2[1,1]<-  cos(theta2)
-rot2[1,2]<- - sin(theta2)
-rot2[2,1]<- sin(theta2)
-rot2[2,2]<- cos(theta2)
-ref2<-matrix(1:4,nrow=2, ncol=2)
-ref2[1,1]<-  1
-ref2[1,2]<-  0
-ref2[2,1]<- 0
-ref2[2,2]<- 1
-mds2a <- t(rot2 %*% t(mds2))
 par(mai=c(.5,.5,.5,.5))
-plot(mds2a, type = 'n', axes = FALSE, xlab = '', ylab = '')
-text(mds2a[, 1], mds2[, 2], levels)
+plot(mds2, type = 'n', axes = FALSE, xlab = '', ylab = '')
+text(mds2[, 1], mds2[, 2], levels)
