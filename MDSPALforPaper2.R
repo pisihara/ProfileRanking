@@ -62,6 +62,18 @@ nL43 <- c(21.0,21.7,21.9,21.6,15.4,21.4)
 
 Level3.data <- data.frame(nL11,nL12,nL13,nL21,nL22,nL23,nL31,nL32,nL33,nL41,nL42,nL43)
 mds3 <- cmdscale(dist(Level3.data))
+rot1<-matrix(1:4,nrow=2, ncol=2)
+theta1=.4
+rot1[1,1]<-cos(theta1)
+rot1[1,2]<-sin(theta1)
+rot1[2,1]<- sin(theta1)
+rot1[2,2]<- cos(theta1)
+ref1<-matrix(1:4,nrow=2, ncol=2)
+ref1[1,1]<-  1
+ref1[1,2]<-  0
+ref1[2,1]<- 0
+ref1[2,2]<- 1
+mds3a <- t(rot1 %*% t(mds3))
 par(mai=c(.25,.25,.25,.25))
-plot(mds3, type = 'n', axes = FALSE, xlab = '', ylab = '')
-text(mds3[, 1], mds3[, 2], levels3)
+plot(mds3a, type = 'n', axes = FALSE, xlab = '', ylab = '')
+text(mds3a[, 1], mds3a[, 2], levels3)

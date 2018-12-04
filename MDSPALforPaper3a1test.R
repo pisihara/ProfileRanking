@@ -1,0 +1,38 @@
+# Classical MDS of ACBC Disaster Relief Organization Survey 2018
+respondents <- c('1','2','3','4','     5','     6','     7','     8','          9','          10','          J','               Q','               K','               a','                    b','                    c','                    d','                         e','                         f')
+F1 <- c(0,0,0,0)
+F2 <- c(0,1,0,0)
+F3 <-c(1,0,0,0)
+F4 <- c(1,1,0,0)
+F5 <- c(0,0,0,0)
+F6 <- c(0,1,0,0)
+F7 <- c(1,0,0,0)
+F8 <- c(1,1,0,0)
+F9 <- c(0,0,0,0)
+F10 <- c(0,1,0,0)
+F11 <- c(1,0,0,0)
+F12 <- c(1,1,0,0)
+F13 <- c(0,0,0,0)
+N1 <-c(0,1,0,0)
+N2 <-c(1,0,0,0)
+N3 <-c(1,1,0,0)
+N4 <-c(0,0,0,0)
+N5 <- c(0,1,0,0)
+N6 <- c(1,0,0,0)
+rot1<-matrix(1:4,nrow=2, ncol=2)
+theta1=0
+rot1[1,1]<-cos(theta1)
+rot1[1,2]<-sin(theta1)
+rot1[2,1]<- sin(theta1)
+rot1[2,2]<- cos(theta1)
+ref1<-matrix(1:4,nrow=2, ncol=2)
+ref1[1,1]<-  1
+ref1[1,2]<-  0
+ref1[2,1]<- 0
+ref1[2,2]<- 1
+Respondent.data <- data.frame(F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12,F13,N1,N2,N3,N4,N5,N6)
+mds1 <- cmdscale(dist(Respondent.data))
+mds1a <- t(rot1 %*% t(mds1))
+par(mai=c(1,1,1,1))
+plot(mds1a, type = 'n', axes = TRUE, xlab = '', ylab = '')
+text(mds1a[, 1], mds1a[, 2], respondents)

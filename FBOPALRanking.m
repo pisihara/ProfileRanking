@@ -1,13 +1,13 @@
 %% MATLAB script to compute PAL rankings from organized data file
 clear all; close all;
-n=5; %% number of respondents
+n=13; %% number of respondents
 %% Create respondents
 for h=1:n
     org(h,1)=respondent;
 end
 %% Read in Organized Data
 Profiles=xlsread('FBOOrganized.xlsx','Overall','A2:D82');
-ProfileRankings=xlsread('FBOOrganized.xlsx','Overall','G2:K82')
+ProfileRankings=xlsread('FBOOrganized.xlsx','Overall','G2:S82')
 %% Compute PAL Rankings by each organization
 for h=1:n
 for i=1:4

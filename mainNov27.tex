@@ -27,7 +27,7 @@
 \usepackage{hyperref}
 \usepackage{authblk}
 
-\title {Profile Ranking Adaptive Choice-Based Conjoint Analysis: A Simple Extension to Utility-Based Analysis for Small Populations}
+\title {Profile Ranking Adaptive Choice-Based Conjoint Analysis: A Simple Standby to Utility-Based Analysis for Small Survey Populations}
 
  \author[1]{}
 % \author[1]{Skyler Laney\thanks{skyler.laney@my.wheaton.edu}}
@@ -74,7 +74,7 @@
  \vspace{.7in}
 
  \begin{abstract}
-To analyze Adaptive Choice-Based Conjoint (ACBC) survey samples from small populations, a new methodology called profile ranking based ACBC (PR-ACBC) is proposed as a simple extension to utility based  ACBC. PR-ACBC offers a form of validation especially useful for small survey data with high variances in partworth utilities. Without requiring knowledge of partworth utilities, PR-ACBC begins with a simple computation using choice task data to obtain both individual and sample mean profile attribute level (PAL) rankings. The Maximum likelihood estimation of profile rankings for both a known population size $N$ (via multivariate hypergeometric distribution) and unknown $N$ (via Lagrange multiplier optimization) is then used to obtain point estimates of population profile and PAL rankings.  The sample profile and PAL rankings are also used  for  multidimensional scaling (MDS) which offers a two-dimensional visual representation of similarities/dissimilarities in respondents and PALs.  PR-ranking methodology is then compared with partworth utilities with respect to accuracy of choice task predictions and ranking of attribute importances. Finally, PR-ACBC methodology is applied to a recent survey administered to  a small population of disaster relief organizations.
+Serving as a standby to support Adaptive Choice-Based Conjoint (ACBC) surveys of very small populations, a new methodology called profile ranking based ACBC (PR-ACBC) is introduced as a simple way to overcome partworth utilities with possibly large variances. Without requiring any knowledge of partworth utilities, PR-ACBC begins with a simple computation using choice task data to obtain both individual and sample mean profile attribute rankings and their derived profile attribute level (PAL) rankings. The Maximum likelihood estimation of profile rankings for both a known population size $N$ (via multivariate hypergeometric distribution) and unknown $N$ (via Lagrange multiplier optimization) provide point estimates of population profile and PAL rankings.  The sample PAL rankings are also especially useful  for  multidimensional scaling (MDS) which offers a two-dimensional visual representation of similarities/dissimilarities in respondents.  Finally, PR-ACBC methodology is applied to a recent survey administered to  a small population of disaster relief organizations.  PAL rankings are compared with partworth utilities with respect to accuracy of choice task predictions and ranking of attribute importances.
 
 \end{abstract}
 
@@ -105,9 +105,13 @@ To analyze Adaptive Choice-Based Conjoint (ACBC) survey samples from small popul
 
 \section{Introduction}
 
-Adaptive Choice-Based Conjoint (ACBC) analysis surveys are a widely-utilized, well-developed, and highly effective  type of conjoint analysis (Orme and Chrzan, 2017). Profile-Ranking (PR-) ACBC uses data from the choice-task stage based on  the Method of Paired Comparisons (MPC) (Thurstone 1927),  and then applies ranking theory (Alvo and Yu 2014) to obtain profile attribute level rankings akin to partworth utilities. Unlike Maximum Difference (MaxDiff) scaling which is complementary to but not directly integrable into ACBC  (Sawtooth 2013), PR is easy to integrate into ACBC for use with small but geographically separated populations (eg. $N \le$ 50) where large variances in partworth utilities may hamper population inferences. Letting $n$ be the number of survey respondents, $t$ the number of choice tasks, $a$ the number of alternatives per set, and $c$ the maximum number of levels in any attribute, a rule of thumb for utility-based statistical inference is $n > \frac{s}{at} 10^3$ (Orme 2014). PR-methodology serves as a check of conclusions based on partworth-utilities  for the case $n < N < \frac{s}{at} 10^3$.   Following the first application of ACBC to disaster relief (Gralla et al. 2014), we used Sawtooth's Lighthouse platform to structure our choice-task stage as a single-elimination tournament beginning with 16 profiles close to the respondent's \#1 profile revealed in the  ``Build Your Own'' (BYO) stage. This platform  uses  a hierarchical-Bayesian Markov-Chain Monte-Carlo (HB MCMC) simulation (Rossi et. al. 2005) to estimate partworth utilities and their variances. Profile attribute level (PALs) rankings which can easily be computed without utilities serve to validity profile choice predictions and ranking of attribute importances based on part-worth utilities.  PALs are also used in  multi-dimensional scaling (MDS) (Alvo and Yu 2014) to give a 2-dimensional visual representation showing similarities in respondents and their ranking of attribute levels.
+Adaptive Choice-Based Conjoint (ACBC) analysis surveys are a widely-utilized, well-developed, and highly effective  type of conjoint analysis (Orme and Chrzan, 2017).  In light of the fact that ACBC is not designed for use with very small populations ($N\le 100$),   we introduce Profile-Ranking (PR-) ACBC ss a new "value-added" methdod which applies ranking theory (Alvo and Yu 2014)) to data collected during the choice-task stage  to obtain attribute rankings and their associated profile attribute level (PAL) rankings.  PR-ACBC does not require any knowledge of partworth utilities, and thus serves as a simple type of validation of population inferences drawn from utility-based analysis. Unlike Maximum Difference (MaxDiff) scaling which is complementary to but not directly integrable into ACBC  (Sawtooth 2013), PR is easily integrated into ACBC choice task tournaments based on  the Method of Paired Comparisons (MPC) (Thurstone 1927).    
 
-In Section 2, we introduce basic PR-ACBC methodology by means of a very simple generic (``toy'') survey with only 4 profiles constructed from 2 attributes each with 2 levels. We begin with a fundamental observation that the exact sample profile rankings directly obtainable from choice tournament data can not be obtained by multiple linear regression (part-worth utilities).  PR-ACBC then proceeds to analyze  survey tournament data without requiring any knowledge of partworth utilities.  Maximum likelihood estimate (MLE) population rankings for known population sizes are obtainable by a discrete multivariate hypergeometric distribution (Oberhofer and Kaufman 1987), and  for unknown population sizes by multivariable calculus optimization using Lagrange multipliers (Stewart 2016).   Population ranking intervals which must contain the unknown population profile rankings are easily computed from sample profile rankings.Similarly, the PAR-intervals which must contain the actual population attribute level rankings are easily obtained from sample data.   Sample PARs are also useful for multi-dimensional scaling (MDS) which show similarities in respondents and PAL rankings. This is useful for comparing and contrasting sample subgroups.  In Section 3 we illustrate PR methodology using a recent ACBC survey deployed to both faith-based and non-faith based disaster relief organizations.    The context motivating this methodological study is a sequel to a novel application of ACBC in disaster-response research (Gralla et. al. 2014). Finally, in Section 4, we suggest a couple of major directions for further research in PR-ACBC.
+A small population size $N$ for which PR-ACBC is designed  may be categorized based on a a rule of thumb for utility-based conjoint analysis (Orme 2014). In particular, letting $n$ be the number of survey respondents, $t$ the number of choice tasks, $a$ the number of alternatives per set, and $c$ the maximum number of levels in any attribute, we consider cases where $n < N << \frac{c}{at} \cdot 10^3$. 
+
+  Following the first application of ACBC to disaster relief (Gralla et al. 2014), we used Sawtooth's Lighthouse platform to structure our choice-task stage as a single-elimination tournament beginning with 16 profiles close to the respondent's \#1 profile revealed in the  ``Build Your Own'' (BYO) stage. The Lighthouse platform  offers  a sophisticated hierarchical-Bayesian Markov-Chain Monte-Carlo (HB MCMC) simulation (Rossi et. al. 2005) to estimate partworth utilities and their variances. Profile attribute rankings and their derived  profile attribute level (PALs) rankings on the other hand can easily be computed without knowledge of partworth utilities, and so serve as a simple validity check of utility-based  profile choice predictions and ranking of attribute importances for small populations.  PALs are also useful in  multi-dimensional scaling (MDS) (Alvo and Yu 2014) to give a 2-dimensional visual representation showing similarities in respondents and their ranking of attribute levels.
+
+In Section 2, we introduce basic PR-ACBC methodology by means of a very simple generic (``toy'') survey with only 4 profiles constructed from 2 attributes each with 2 levels. We begin with a fundamental observation that the exact sample profile rankings and their derived PAL rankings directly obtainable from choice tournament data can not be obtained by multiple linear regression of attribute levels (part-worth utilities).  We therefore develop PR-ACBC using only survey tournament data without requiring any knowledge of partworth utilities.  Maximum likelihood estimate (MLE) population rankings for known population sizes are obtainable by a discrete multivariate hypergeometric distribution (Oberhofer and Kaufman 1987), and  for unknown population sizes by multivariable calculus optimization using Lagrange multipliers (Stewart 2016).   Population ranking intervals which must contain the unknown population profile rankings are easily computed from sample profile rankings.Similarly, the PAL-intervals which must contain the actual population attribute level rankings are easily obtained from sample data.   We then show how sample PALs are useful for multi-dimensional scaling (MDS) which show similarities in respondents and PAL rankings via 2-dimensional geometric representations. This is useful for comparing and contrasting sample respondent subgroups and clustering of attributes.  In Section 3 we illustrate PR methodology using a recent ACBC survey deployed to international disaster relief organizations with a headquarters in the U.S. or Canada.    This small survey population provided the original context motivating this methodological study, and is a sequel to a novel application of ACBC in disaster-response research (Gralla et. al. 2014).   Finally, in Section 4, we suggest a couple of major directions for further research in PR-ACBC, which is currently still in its initial stage of development.
 
 
 
@@ -668,37 +672,51 @@ An Excel file keeps track of each responding organization's tournament and the P
 	\centering
 	\scriptsize
 	\begin{tabular}{c|ccc|ccc|ccc|ccc}
-		&\multicolumn{12}{c}{Profile Attribute Levels (PALs)}\\
+		\multicolumn{1}{c}{}	&\multicolumn{3}{c}{Funding}&\multicolumn{3}{c}{Scale}&\multicolumn{3}{c}{Need}&\multicolumn{3}{c}{Community Access Partner}\\
+		\multicolumn{1}{c}{}	&$\ge 75\%$&$\sim 50\%$&$<25 \%$& ISAE3&ISAE2& ISAE1/&clear&optional&unknown&none&local&outside\\
+		\multicolumn{1}{c}{}	& & & & & & undeclared& & & & & & \\
 		ORG & L11&L12&L13&L21&L22&L23&L31&L32&L33&L41&L42&L43\\\hline
-FBO1 &20.2&18.6&22.7&20.8&18.2&22.5&  21.2&17.9&22.4&21.5&18.4&21.6\\
-FBO2 &21.2&21.5&18.8&21.3&21.4&18.8&  17.8&21.5&22.2&22.1&17.1&22.3\\
-FBO3 &21.1&18.1&22.5&20.3&18.5&22.8&   20.8&18.7&22.1&21.8&21.9&17.9\\
-FBO4 &20.6&17.7&20.3&20.6&18.1&20.1&  21.2&17.8&20.7&21.6&15.6&21.6\\
-FBO5 &20.3&20.4&17.8&20.1&17.6&20.7&  17.3&20.8&20.4&20.3&13.0&20.2\\\hline
-NGO1 &20.8&21.5&19.2&21.7& 18.7&21.0&   17.3&21.6&22.6&22.4&18.2&21.0\\
-NGO2 &20.3&22  &20.0&18.4& 21.1&22.8&   18.8&20.9&22.6&21.3&19.4&21.7\\
-NGO3 &18.1&21.6&21.8&19.5& 20.3&21.7&   17.2&22.5&21.8&20.3&19.2&21.9\\
-NGO4 &19.6&20.3&21.4&18.0& 21.3&22.2&   21.2&19.2&21.1&22.1&17.9&21.6\\
-NGO5 &20.6&21.5&19.4&21.2&21.4&18.8&   16.6&22.3&22.7&18.4&21.6&21.4\\\hline
+FBO1 &20.2&{\bf 18.6}*&22.7&20.8&{\bf 18.2}*&22.5&  21.2&{\bf 17.9}*&22.4&21.5&{\bf 18.4}*&21.6\\
+FBO2 &21.2&21.5&{\bf 18.8}*&21.3&21.4&{\bf 18.8}*&  {\bf 17.8}*&21.5&22.2&22.1&{\bf 17.1}*&22.3\\
+FBO3 &21.1&{\bf 18.1}*&22.5&20.3&{\bf 18.5}*&22.8&   20.8&{\bf 18.7}*&22.1&21.8&21.9&{\bf 17.9}*\\
+FBO4 &19.8&
+{\bf 17.2}*&19.6&19.8&{\bf 17.6}*&19.3&19.4&{\bf 17.3}*&
+20.0&20.8&{\bf 15.0}*&20.8
+\\
+FBO5 &19.0&19.2&{\bf 16.8}*&18.9&{\bf 16.8}*&19.6&
+{\bf 16.5}*&19.6&19.2&19.1&{\bf 17.1}*&19.0\\
+FBO6 &18.0& 17.9&{\bf 15.8}*&17.6&{\bf 15.9}*&
+18.2&{\bf 15.3}*&18.2&18.2&18.8&{\bf 14}*&18.\\
+FBO7 &19.3&{\bf 17.4}*&20.0&19.5&{\bf 17.4}*&
+19.7&18.9&{\bf 17.8}*&19.9&20.8&{\bf 15.4}*&20.4\\
+FBO8 &19.2&{\bf 17.3}*&20.1&19.6&{\bf 17.4}*&
+19.6&{\bf 16.6}*&19.8&20.3&20.2&{\bf 15.8}*&20.6\\
+FBO9 & 20.9&21.0&{\bf 19.6}*&21.3&21.6&
+{\bf 18.7}*&20.6&{\bf 18.8}*&22.2&22.8&{\bf 16.3}*&22.4\\
+FBO10&20.6&{\bf 18.4}*&22.4&20.9&{\bf 18.8}*&
+21.9&{\bf 18}*&21.4&22.1&22.6&{\bf 16.8}*&22.1\\
+FBO11&19.9&19.7&{\bf 17}*&19.0&{\bf 17.5}*&20.1&
+18.9&{\bf 17.2}*&20.6&20.5&{\bf 15.4}*&20.8\\
+FBO12&18.8&19.2&{\bf 16.2}*&18.7&{\bf 16.4}*&
+19.1&17.9&{\bf 16.7}*&19.5&19.4&{\bf 15.4}*&19.4\\
+FBO13&20.9&21.8&{\bf 18.8}*&21.7&{\bf 18.1}*&21.6&
+{\bf 18}*&21.9&21.6&22.4&{\bf 17.3}*&21.8\\\hline
+mean&19.93&{\bf 19.04}&19.26&19.96&{\bf 18.12}&20.15&{\bf 18.45}&18.98&20.79&21.00&{\bf 16.62}&20.6\\\hline
+partworth&{\bf 14.94}&4.08&-19.03&{\bf 17.84}&16.93&-34.77&{\bf 53.87}&-1.24&-52.62&-66.2&{\bf 97.84}&-31.64\\\hline\hline
+NGO1 &20.8&21.5&{\bf 19.2}*&21.7& {\bf 18.7}*&21.0&   {\bf 17.3}*&21.6&22.6&22.4&{\bf 18.2}*&21.0\\
+NGO2 &20.3&22  &{\bf 20.0}*&{\bf 18.4}*& 21.1&22.8&   {\bf 18.8}*&20.9&22.6&21.3&{\bf 19.4}*&21.7\\
+NGO3 &{\bf 17.54}&20.80&21.07&{\bf 18.91}*& 19.56&20.94&   {\bf 16.67}&21.70&21.04&19.70*&{\bf 18.54}&21.17\\
+NGO4 &{\bf 19.6}&20.3*&21.4&{\bf 18.0}*& 21.3&22.2&   21.2&{\bf 19.2}*&21.1&22.1&{\bf 17.9}*&21.6\\
+NGO5&16.5&{\bf 15.1}*&17.8&16.9&{\bf 15.3}*&
+17.3&{\bf 14.2}*&17.5&17.8&17.3&{\bf 16.7}*&15.4\\
+NGO6 &20.6&21.5&{\bf 19.4}*&21.2&21.4&{\bf 18.8}*&   {\bf 16.6}*&22.3&22.7&{\bf 18.4}*&21.6&21.4\\\hline
+mean&{\bf 19.27}&20.129&19.82&{\bf 19.2}&19.56&20.52&{\bf 17.45}&20.54&21.3&20.22&{\bf 18.72}&20.36\\\hline
+partworth& {\bf 31.8}&-4.77&-27.03&{\bf 29.26}&.48&-29.74&{\bf 86.13}&-1.41&-84.72&-50.36&{\bf 44.72}&5.63\\\hline
 	\end{tabular}
-\caption{FBO/NGO Individual PAL rankings ($n=5$)}
+\caption{FBO/NGO Individual PAL rankings ($n=13$) and sample means compared with average zero-centered part-worth utilities. Top-ranked level in {\bf bold} (* denotes BYO level)}
 \label{PAL}
 \end{table}
 
-\begin{table}[!htpb]
-	\centering
-	\scriptsize
-	\begin{tabular}{r|ll|ll|ll}
-		ATTRIBUTE& \multicolumn{2}{c}{Level 1}&\multicolumn{2}{c}{Level 2}&\multicolumn{2}{c}{Level 3}\\\hline
-		& FBO&NGO&FBO&NGO&FBO&NGO\\
-		1 Funding &20.6&{\bf 19.93 ($\ge 75\%)$}&	{\bf 19.27 ($\sim 50\%$)}&21.36&	20.42&20.38\\
-		2 Scale & 20.61&{\bf 19.78 (ISAC Level 3)}&	{\bf 18.77 (ISAC Level 2)}&20.57&	21.00&21.32\\
-		3 Need & 19.45&{\bf 18.20 (clear need)}&	{\bf 19.34 (not indispensable)}&21.31&	21.58&22.14\\
-		4 Access & 21.47&20.89&	{\bf 18.19 Local Partner}&{\bf 19.26 Local Partner} & 20.71&21.51\\\hline
-	\end{tabular}
-	\caption{FBO/NGO Sample Mean PAL rankings ($n=5$)}
-	\label{PAL}
-\end{table}
 \subsubsection{PAL ranking intervals}
 
 
@@ -713,26 +731,34 @@ NGO5 &20.6&21.5&19.4&21.2&21.4&18.8&   16.6&22.3&22.7&18.4&21.6&21.4\\\hline
 
 \begin{figure}[!htpb]
 	\centering
-	\includegraphics[width=4.5in, height=3.75in]{ACBCout.png}
+	\includegraphics[width=6.75in, height=5in]{Combined.pdf}
+	\caption{Partworth utilities and profile level rankings }
+	\label{Combined}
+\end{figure}
+
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=4.5in, height=3.75in]{FNMDS.png}
 	\caption{Multidimensional scaling showing similarity of sample respondents and attribute levels.}
 	\label{MDSout1}
 \end{figure}
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=3.75in, height=3in]{ACBCout2.png}
-	\caption{Attribute 1 levels only.}
-	\label{MDSout2}
-\end{figure}
+
 
 
 
 \newpage
-\subsection{Comparison with Part-worth Utilities}
+\subsection{Validation of Part-worth Utilities}
+
+\subsubsection{Attribute Importances}
+Shows inadequacy of partworth utilities for determing attribute importance.
+
+
 
 \subsubsection{Choice task prediction accuracy}
 
-\subsubsection{Attribute Importances}
+
 
 \section{Further Work}
 Still in its infancy, PR-ACBC methodology has several major areas open to further research including analysis of  different ranking systems for various types of choice tournaments, determination of the population nd sample sizes for which PR-ACBC is most suitable, and application of PR-ACBC to other small population studies.
